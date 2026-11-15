@@ -30,6 +30,16 @@ Em **Settings → Pages**, selecione **Deploy from a branch**, a branch **main**
 
 O arquivo `.nojekyll` mantém a publicação como site estático.
 
+## Vercel e domínio próprio
+
+O endereço solicitado é `https://fisioterapeutasdosonomkt.com.br/emformacao/`. O arquivo `vercel.json` publica a mesma página nesse caminho e encaminha seus arquivos de estilo, scripts e imagens. O acesso sem a barra final é redirecionado para a versão com barra, permitindo que os endereços relativos dos recursos funcionem. A página na raiz continua disponível.
+
+Essa configuração só entra em vigor na Vercel após o envio deste arquivo ao repositório e uma nova publicação. O GitHub Pages continua servindo os arquivos estáticos como antes.
+
+Para conectar o domínio, adicioná-lo em Configurações → Domínios do projeto da Vercel e usar no Registro.br os valores de DNS informados pelo painel. O caminho `/emformacao` é configurado pelo projeto, e não pelo DNS. Os outros dois sites poderão ter seus próprios caminhos no mesmo projeto principal ou ser encaminhados a partir dele.
+
+Projeto na Vercel: `em-formacao`, disponível em `https://em-formacao.vercel.app/`. Em 15/11/2026, o domínio próprio foi vinculado ao projeto; o ajuste do DNS no Registro.br e a validação de acesso por HTTPS continuam pendentes.
+
 ## Configuração
 
 Edite `config.js` para adicionar os links de compra e atualizar o link de atendimento em `whatsappLink`.

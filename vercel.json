@@ -1,0 +1,14 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "trailingSlash": true,
+  "rewrites": [
+    {
+      "source": "/emformacao/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/emformacao/:arquivo*",
+      "destination": "/:arquivo*"
+    }
+  ]
+}
