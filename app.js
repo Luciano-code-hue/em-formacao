@@ -11,15 +11,19 @@
     try { const url = new URL(value); return url.protocol === 'https:' ? url.href : null; }
     catch { return null; }
   }
+  function checkoutLink(value) {
+    const url = safeLink(value);
+    return url ? (window.FS_ATTRIBUTION?.checkoutUrl(url) || url) : null;
+  }
   const comboCheckout = $('[data-combo-checkout]');
-  const comboUrl = safeLink(config.checkouts?.combo_em_formacao);
+  const comboUrl = checkoutLink(config.checkouts?.combo_em_formacao);
   if (comboUrl) comboCheckout.href = comboUrl;
   $$('[data-whatsapp]').forEach(link => {
     const url = safeLink(config.whatsappLink);
     if (url) link.href = url;
   });
   $$('[data-course-checkout]').forEach(link => {
-    const url = safeLink(config.checkouts?.[link.dataset.courseCheckout]);
+    const url = checkoutLink(config.checkouts?.[link.dataset.courseCheckout]);
     if (url) {
       link.href = url;
       link.target = '_blank';
