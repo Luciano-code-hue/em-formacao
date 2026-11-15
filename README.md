@@ -38,13 +38,17 @@ Essa configuração só entra em vigor na Vercel após o envio deste arquivo ao 
 
 Para conectar o domínio, adicioná-lo em Configurações → Domínios do projeto da Vercel e usar no Registro.br os valores de DNS informados pelo painel. O caminho `/emformacao` é configurado pelo projeto, e não pelo DNS. Os outros dois sites poderão ter seus próprios caminhos no mesmo projeto principal ou ser encaminhados a partir dele.
 
-Projeto na Vercel: `em-formacao`, disponível em `https://em-formacao.vercel.app/`. Em 15/11/2026, o domínio próprio foi vinculado ao projeto; o ajuste do DNS no Registro.br e a validação de acesso por HTTPS continuam pendentes.
+Projeto na Vercel: `em-formacao`, disponível em `https://em-formacao.vercel.app/`. Em 15/11/2026, o domínio próprio foi vinculado ao projeto e os registros DNS foram salvos no Registro.br. A propagação e o acesso por HTTPS devem ser confirmados antes de divulgar o domínio como disponível.
 
 ## Configuração
 
 Edite `config.js` para adicionar os links de compra e atualizar o link de atendimento em `whatsappLink`.
 
-O checkout do combo já usa o link Hotmart informado em 14/11/2026. Os demais CTAs da campanha levam ao bloco da oferta. Os 7 cursos avulsos aguardam seus links e apresentam “Inscrições em breve”; cada botão é ativado automaticamente quando seu link HTTPS é preenchido.
+O checkout do combo e os sete cursos avulsos usam os links oficiais fornecidos. Os botões dos cursos apresentam “Quero este curso”. Os demais CTAs da campanha levam ao bloco da oferta. Ofertas, modos de checkout e o cupom `BLACKCURVAS2026` de Curvas de Fluxo são preservados.
+
+O contêiner Google Tag Manager `GTM-TF9PPGQC` está instalado no head, com iframe noscript após o body. Luciano confirmou que o Pixel já está configurado nesse GTM; não há instalação separada do Pixel na página.
+
+O arquivo `tracking.js` guarda as cinco UTMs da última campanha na chave `fds_utms` e as acrescenta aos links do combo e dos cursos. Em retornos sem UTMs, recupera a campanha salva. A atribuição da visita continua funcionando se o armazenamento local estiver bloqueado. Esta página não possui formulário ActiveCampaign.
 
 O formulário foi removido. O botão final e o botão flutuante usam `https://wa.link/qekp5g`. O flutuante aparece quando o visitante chega ao FAQ e se oculta novamente se retornar para antes dele.
 
