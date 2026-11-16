@@ -27,23 +27,6 @@
     } catch { /* Mantém o atendimento definido no HTML. */ }
   });
 
-  const toggle = $('#menu-toggle');
-  const menu = $('#site-nav');
-  function closeMenu() {
-    toggle.setAttribute('aria-expanded', 'false');
-    toggle.setAttribute('aria-label', 'Abrir menu');
-    menu.classList.remove('is-open');
-  }
-  toggle.addEventListener('click', () => {
-    const open = toggle.getAttribute('aria-expanded') !== 'true';
-    toggle.setAttribute('aria-expanded', String(open));
-    toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
-    menu.classList.toggle('is-open', open);
-  });
-  menu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
-  document.addEventListener('keydown', event => { if (event.key === 'Escape') closeMenu(); });
-  document.addEventListener('click', event => { if (!$('#site-header').contains(event.target)) closeMenu(); });
-
   const faqItems = $$('#faq details');
   faqItems.forEach(item => item.addEventListener('toggle', () => {
     if (item.open) faqItems.forEach(other => { if (other !== item) other.open = false; });
@@ -63,24 +46,11 @@
   updateBonus();
   document.addEventListener('visibilitychange', () => { if (!document.hidden) updateBonus(); });
 
-  const hero = $('#inicio');
-  const offer = $('#investimento');
   const faq = $('#faq');
-  const contact = $('#contato');
-  const footer = $('.site-footer');
-  const bar = $('#purchase-bar');
   const whatsapp = $('#whatsapp-float');
   let scheduled = false;
   function updateScroll() {
     scheduled = false;
-    const distance = document.documentElement.scrollHeight - innerHeight;
-    $('#reading-progress').style.transform = 'scaleX(' + (distance > 0 ? Math.min(1, scrollY / distance) : 0) + ')';
-    const rect = offer.getBoundingClientRect();
-    const contactRect = contact.getBoundingClientRect();
-    const inOffer = rect.top < innerHeight && rect.bottom > 0;
-    const inContact = contactRect.top < innerHeight && contactRect.bottom > 0;
-    bar.hidden = hero.getBoundingClientRect().bottom > 0 || inOffer || inContact || footer.getBoundingClientRect().top < innerHeight;
-    document.body.classList.toggle('has-purchase-bar', !bar.hidden);
     whatsapp.hidden = faq.getBoundingClientRect().top >= innerHeight;
   }
   function requestScroll() {

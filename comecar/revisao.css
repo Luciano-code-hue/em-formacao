@@ -1,0 +1,234 @@
+/* Revisão aprovada: leitura clara, benefícios visíveis e compra sem barras fixas. */
+html { scroll-padding-top: 24px; }
+.site-header { position: relative; height: 72px; backdrop-filter: none; }
+.nav-inner { justify-content: center; }
+.hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; grid-template-rows: auto auto; gap: 0 42px; min-height: 0; padding: 42px 0 52px; align-items: center; }
+.hero-intro { grid-column: 1; grid-row: 1; }
+.hero-audience { font-size: 11px; letter-spacing: 1px; margin-bottom: 20px; color: #c9b6d2; }
+.eyebrow { font-size: 11px; color: #e0c2ef; }
+.hero h1 { font-size: clamp(35px, 3.5vw, 51px); line-height: 1.13; letter-spacing: -1.6px; }
+.hero-description { font-size: clamp(30px, 3vw, 42px); font-weight: 500; line-height: 1.2; color: #fff5ff; margin: 24px 0 22px; max-width: 620px; letter-spacing: -1px; }
+.hero-description strong { color: #e0b7f5; font-weight: 700; }
+.hero-visual { grid-column: 2; grid-row: 1 / 3; min-height: 0; width: 100%; margin: 0; padding: 0; align-self: center; }
+.hero-orbit { top: 5%; left: 4%; width: 92%; }
+.founders-photo { width: 100%; max-width: 590px; margin: 0 auto; mask-image: linear-gradient(#000 77%, transparent 100%); }
+.hero-actions { grid-column: 1; grid-row: 2; min-width: 0; }
+.hero-badges { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; max-width: none; margin: 0 0 22px; }
+.hero-badges > span { display: flex; flex-direction: column; justify-content: center; text-align: center; min-height: 90px; padding: 13px 8px; background: #e0bff2; border: 1px solid #f0dafb; color: #2c1535; border-radius: 8px; letter-spacing: 0; }
+.hero-badges strong { font-size: clamp(23px, 2.6vw, 34px); line-height: 1.15; font-weight: 750; white-space: nowrap; }
+.hero-badges > span > span { font-size: 14px; line-height: 1.45; font-weight: 600; margin-top: 5px; }
+.hero-teachers { font-size: 15px; line-height: 1.6; color: #d6c4df; max-width: 530px; margin-top: 18px; }
+
+.cta, .hero .cta, .price-panel .cta, .cta-row .cta, .contact .cta { min-height: 64px; padding: 17px 26px; font-size: 17px; line-height: 1.45; font-weight: 750; justify-content: center; text-align: center; border-radius: 7px; gap: 12px; }
+.cta.primary { background: #dfb5f6; color: #2a1234; border: 2px solid #ebcffa; box-shadow: 0 7px 22px #12071a22; }
+.cta.primary:hover { background: #edceff; border-color: #f5e5ff; box-shadow: 0 10px 27px #12071a32; }
+.hero .cta { width: 100%; }
+.cta > span, .course-content > .cta span:last-child { font-size: inherit; }
+.benefits { padding: 42px 0; }
+.benefit-grid { gap: 30px; }
+.benefit > p { font-size: 18px; line-height: 1.65; max-width: none; color: #493b53; }
+.benefit .icon { width: 31px; height: 31px; margin-bottom: 17px; }
+
+.audience { background: #e7d6f0; }
+.audience-story > p { font-size: 19px; color: #51405c; line-height: 1.75; }
+.audience-story blockquote { font-size: 34px; color: #6e3d83; }
+.audience-lists { gap: 30px; }
+.audience-lists > article { padding: 30px; border: 1px solid #c7a6d5; border-top: 4px solid #8a51a0; background: #fcf7ff; border-radius: 9px; }
+.audience-lists .not-for { background: #f3e9f8; border-color: #cab6d3; border-top-color: #a58ab1; }
+.list-label { font-size: 26px; }
+.audience-lists ul { font-size: 18px; line-height: 1.75; color: #55405e; margin-top: 22px; }
+.audience-lists li + li { margin-top: 15px; }
+.section-heading > p:last-child:not(.overline) { font-size: 18px; }
+.specialists .section-heading { max-width: 1100px; }
+
+.product-body > h3 { min-height: 0; font-size: 31px; }
+.product-body > p:not(.overline):not(.practical):not(.live-note):not(.course-access) { font-size: 18px; line-height: 1.75; }
+.product-body > .course-access { padding: 19px 20px; border-left: 4px solid #825096; background: #f0e2f7; margin: 0 0 25px; }
+.course-access > strong { display: block; font-size: 26px; line-height: 1.25; color: #65367c; }
+.course-access > span { display: block; margin-top: 7px; font-size: 17px; line-height: 1.65; color: #594365; }
+.product-body .check-list li, .meeting > p, .practical { font-size: 17px; line-height: 1.75; color: #65536d; }
+.meeting > span, .practical > strong { font-size: 12px; }
+.access-note { display: grid; grid-template-columns: 40px minmax(0, 1fr); align-items: start; gap: 12px 20px; padding: 30px; background: #eee0f5; border: 1px solid #c4a6d2; border-radius: 9px; }
+.access-note > .icon { margin-top: 4px; }
+.access-note h3 { font-size: 30px; line-height: 1.25; margin-bottom: 12px; max-width: 800px; }
+.access-note p { font-size: 18px; line-height: 1.75; }
+.access-note .club-access { margin-top: 13px; color: #5a3c67; }
+.access-note > .cta { position: static; grid-column: 1 / -1; justify-self: center; margin: 12px 0 0; min-width: 270px; }
+.offer-copy > p:not(.overline):not(.offer-audience) { font-size: 19px; color: #d7c7df; }
+.offer-includes .check-list li { font-size: 17px; line-height: 1.75; color: #d3bddf; }
+.offer-includes strong { color: #fff0ff; font-weight: 650; }
+.offer-audience { font-size: 15px; color: #cfb5dc; }
+.price-edition { display: block; font-size: 23px; letter-spacing: -.3px; font-weight: 750; color: #6a387f; }
+.price-durations span, .price-guarantee > p { font-size: 14px; }
+.price-durations strong { font-size: 24px; }
+.cash-price { font-size: 17px; }
+.price-guarantee strong { font-size: 16px; }
+.payment-methods, .limited-seal { font-size: 11px; }
+
+.bonus-card > h3 { font-size: 27px; margin-bottom: 20px; }
+.bonus-card > .overline { font-size: 12px; margin-top: 24px; }
+.bonus-card > p:last-child, .bonus-card .bonus-description { font-size: 21px; line-height: 1.7; color: #5f4a6a; }
+.bonus-card .bonus-description strong { color: #613278; font-weight: 750; }
+.bonus-benefits { list-style: none; padding: 0; margin: 0 0 20px; }
+.bonus-benefits li { margin-top: 12px; padding-bottom: 12px; border-bottom: 1px solid #dcc9e5; font-size: 25px; line-height: 1.35; letter-spacing: -.5px; }
+.bonus-benefits strong { font-weight: 750; color: #66337c; }
+.bonus-card > .bonus-validity { font-size: 17px; line-height: 1.65; }
+.bonus-validity strong { color: #66337c; font-weight: 750; }
+.limited-bonus { padding: 30px; border: 2px solid #9755ae; border-top: 7px solid #9755ae; border-radius: 9px; background: #eee0f6; box-shadow: 0 10px 30px #5d2b7310; gap: 30px; }
+.limited-bonus .overline { display: flex; align-items: center; width: fit-content; gap: 12px; font-size: 20px; font-weight: 800; letter-spacing: .3px; line-height: 1.4; color: #fff7ff; background: #713c87; border-radius: 6px; padding: 13px 16px; margin-bottom: 22px; }
+.limited-bonus .overline .icon { width: 28px; height: 28px; }
+.limited-bonus h3 { font-size: 31px; line-height: 1.25; }
+.limited-bonus p:last-child { font-size: 19px; color: #5e426b; line-height: 1.75; }
+.limited-bonus strong { color: #643679; font-weight: 750; }
+.bonus-deadline { white-space: nowrap; }
+
+.guarantee-inner { gap: 26px; }
+.guarantee-mark { width: 82px; height: 94px; margin: 0; color: #77468d; }
+.guarantee-mark > svg { width: 100%; height: 100%; position: absolute; inset: 0; }
+.guarantee-mark > span { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding-bottom: 8px; }
+.guarantee-mark strong { font-size: 37px; font-weight: 750; line-height: 1.05; }
+.guarantee-mark small { font-size: 11px; line-height: 1.5; letter-spacing: 1.4px; font-weight: 750; margin-top: 3px; }
+.guarantee h2 { font-size: 32px; }
+.guarantee p:last-child { font-size: 18px; color: #5e5066; }
+.guarantee .overline { font-size: 10px; }
+.testimonials-heading { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.testimonials-heading > .overline { margin: 0; font-size: 15px; }
+.carousel-button { width: 44px; height: 44px; }
+.carousel-controls { grid-template-columns: 44px 44px; }
+.carousel-counter { font-size: 12px; }
+.faq summary { font-size: 18px; }
+.faq-answer { font-size: 17px; color: #d6c2e0; line-height: 1.8; }
+.faq-heading > p:last-child { font-size: 17px; color: #cdb5d9; }
+.showcase-heading { grid-template-columns: 1.1fr 1fr; gap: 50px; }
+.showcase-heading > p { max-width: 520px; font-size: clamp(23px, 2.3vw, 31px); line-height: 1.5; color: #5e446b; }
+.showcase-heading strong { font-weight: 750; color: #67357c; }
+.course-description, .course-cash { font-size: 16px; }
+.course-content > .cta { justify-content: center; min-height: 58px; font-size: 17px; text-align: center; border-radius: 7px; }
+.contact-inner > div > p:last-child { font-size: 18px; }
+[data-whatsapp] .icon { color: #128c47; }
+.whatsapp-cta { background: #e4f7eb; border: 2px solid #329b5d; color: #185b32; }
+.whatsapp-cta:hover { background: #d1f0dd; border-color: #128c47; }
+.whatsapp-cta > .icon, .whatsapp-cta:hover > .icon { color: #128c47; }
+.whatsapp-float { background: #e4f7eb; color: #185b32; border: 2px solid #329b5d; bottom: 22px; border-radius: 8px; font-size: 14px; padding: 12px 16px; }
+.whatsapp-float:hover { background: #d1f0dd; }
+.whatsapp-float > .icon, .whatsapp-float:hover > .icon { color: #128c47; width: 27px; height: 27px; }
+
+@media (max-width: 1100px) {
+  .hero-grid { gap: 0 25px; }
+  .hero h1 { font-size: 39px; }
+  .hero-description { font-size: 35px; }
+  .hero-badges strong { font-size: 25px; }
+  .benefit-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .bonus-benefits li { font-size: 23px; }
+}
+@media (min-width: 651px) and (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1.15fr .85fr; }
+  .hero h1 { font-size: 34px; }
+  .hero-description { font-size: 31px; }
+  .hero-badges { gap: 7px; }
+  .hero-badges strong { font-size: 21px; }
+  .hero-badges > span > span { font-size: 12px; }
+  .hero .cta { padding-inline: 14px; font-size: 16px; }
+  .hero-teachers { font-size: 14px; }
+  .audience-lists { gap: 22px; }
+  .audience-lists > article { padding: 24px; }
+  .offer-grid { grid-template-columns: 1fr; }
+  .price-panel { max-width: 560px; width: 100%; justify-self: center; }
+  .workshop-card { display: block !important; }
+  .workshop-card > .workshop-art { height: 265px; }
+  .limited-bonus { grid-template-columns: 1fr; }
+  .limited-bonus-image { max-width: 540px; }
+  .contact-inner { display: block; }
+  .contact .cta { margin-top: 26px; }
+}
+@media (max-width: 650px) {
+  .site-header { height: 60px; }
+  .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto auto; padding: 23px 0 34px; gap: 0; }
+  .hero-intro { grid-column: 1; grid-row: 1; }
+  .eyebrow { font-size: 9px; letter-spacing: .7px; margin-bottom: 8px; }
+  .hero-audience { font-size: 9px; letter-spacing: .6px; margin-bottom: 15px; }
+  .hero h1 { font-size: clamp(28px, 7.6vw, 37px); line-height: 1.13; letter-spacing: -.9px; }
+  .hero-description { font-size: clamp(29px, 7.8vw, 37px); line-height: 1.2; margin: 17px 0 0; letter-spacing: -.8px; }
+  .hero-visual { grid-column: 1; grid-row: 2; display: flex; width: 100%; max-width: none; margin: 7px 0 0; padding: 0; min-height: 0; height: 230px; overflow: hidden; }
+  .founders-photo { width: 100%; height: 250px; max-width: 410px; max-height: none; margin: 0 auto -20px; object-fit: cover; object-position: 50% 8%; }
+  .hero-orbit { width: 230px; top: 0; left: calc(50% - 115px); }
+  .hero-actions { grid-column: 1; grid-row: 3; }
+  .hero-badges { margin: 2px 0 17px; gap: 7px; max-width: none; }
+  .hero-badges > span { min-height: 75px; padding: 11px 5px; border-radius: 6px; }
+  .hero-badges strong { font-size: clamp(20px, 5.7vw, 29px); }
+  .hero-badges > span > span { font-size: 12px; margin-top: 4px; }
+  .hero-teachers { font-size: 14px; max-width: none; margin-top: 16px; }
+  .cta, .hero .cta, .price-panel .cta, .cta-row .cta, .contact .cta { font-size: 16px; min-height: 62px; padding: 16px; }
+  .cta-row .cta { width: 100%; }
+  .benefits { padding: 34px 0; }
+  .benefit-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 21px; }
+  .benefit > p { font-size: 17px; line-height: 1.65; max-width: none; }
+  .benefit .icon { width: 29px; height: 29px; margin-bottom: 13px; }
+  .benefit:last-child > p { max-width: none; }
+  .audience-story > p { font-size: 18px; line-height: 1.75; }
+  .audience-story blockquote { font-size: 31px; }
+  .audience-lists { gap: 22px; }
+  .audience-lists > article { padding: 25px 22px; }
+  .audience-lists ul { font-size: 18px; line-height: 1.7; }
+  .list-label { font-size: 24px; }
+  .section-heading > p:last-child:not(.overline) { font-size: 18px; }
+  .product-body { padding: 27px 22px; }
+  .product-body > h3 { font-size: 28px; }
+  .product-body > p:not(.overline):not(.practical):not(.live-note):not(.course-access) { font-size: 18px; }
+  .course-access > strong { font-size: 25px; }
+  .product-body > .course-access { padding: 17px 15px; }
+  .product-body .check-list li, .meeting > p, .practical { font-size: 17px; }
+  .access-note { grid-template-columns: 1fr; padding: 26px 22px; gap: 15px; }
+  .access-note > .icon { width: 33px; height: 33px; margin: 0; }
+  .access-note h3 { font-size: 28px; }
+  .access-note p { font-size: 18px; }
+  .access-note > .cta { width: 100%; min-width: 0; grid-column: 1; margin-top: 7px; }
+  .offer-copy > p:not(.overline):not(.offer-audience) { font-size: 18px; }
+  .offer-includes .check-list li { font-size: 17px; }
+  .price-edition { font-size: 23px; }
+  .price-durations { gap: 16px; }
+  .price-durations > p + p { padding-left: 16px; }
+  .price-durations strong { font-size: 24px; }
+  .price-durations span { font-size: 14px; }
+  .cash-price { font-size: 17px; }
+  .bonus-grid { gap: 45px; }
+  .workshop-art { height: 245px; }
+  .bonus-card > h3 { font-size: 27px; }
+  .bonus-card > .overline { font-size: 11px; }
+  .bonus-card > p:last-child, .bonus-card .bonus-description { font-size: 21px; line-height: 1.65; }
+  .bonus-benefits li { font-size: 26px; }
+  .bonus-card > .bonus-validity { font-size: 18px; }
+  .limited-bonus { padding: 22px 19px; gap: 25px; }
+  .limited-bonus .overline { font-size: 18px; letter-spacing: 0; padding: 12px; gap: 10px; }
+  .limited-bonus h3 { font-size: 28px; }
+  .limited-bonus p:last-child { font-size: 18px; }
+  .guarantee-inner { gap: 19px; align-items: start; }
+  .guarantee-mark { width: 64px; height: 75px; margin-top: 3px; }
+  .guarantee-mark strong { font-size: 31px; }
+  .guarantee-mark small { font-size: 9px; }
+  .guarantee h2 { font-size: 28px; line-height: 1.2; }
+  .guarantee p:last-child { font-size: 17px; line-height: 1.75; }
+  .guarantee .overline { font-size: 8px; }
+  .testimonials-heading > .overline { font-size: 12px; }
+  .faq summary { font-size: 18px; }
+  .faq-answer { font-size: 17px; padding-right: 8px; }
+  .showcase-heading { grid-template-columns: 1fr; gap: 25px; }
+  .showcase-heading > p { font-size: 26px; line-height: 1.5; max-width: none; }
+  .course-description { font-size: 17px; line-height: 1.75; min-height: 0; }
+  .course-cash { font-size: 16px; }
+  .course-content > .cta { font-size: 17px; min-height: 58px; }
+  .contact-inner > div > p:last-child { font-size: 18px; }
+  .contact .cta { width: 100%; }
+  .whatsapp-float { bottom: 18px; right: 16px; }
+}
+@media (max-width: 360px) {
+  .hero-visual { height: 205px; }
+  .founders-photo { height: 225px; }
+  .hero-badges strong { font-size: 20px; }
+  .hero-badges > span > span { font-size: 11px; }
+  .hero .cta, .price-panel .cta { font-size: 15px; }
+  .guarantee-inner { gap: 15px; }
+  .guarantee-mark { width: 57px; height: 67px; }
+  .guarantee h2 { font-size: 25px; }
+}
+@media (prefers-reduced-motion: reduce) { .cta:hover { transform: none; } }
