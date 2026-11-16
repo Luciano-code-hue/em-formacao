@@ -9,6 +9,6 @@ window.FORMADOS_CONFIG = {
     "sono_infantil": "https://pay.hotmart.com/Y108149756D?off=o5acbw7p&checkoutMode=10",
     "fundamentos": "https://pay.hotmart.com/N108149677P?off=a92bhxaa&checkoutMode=10"
   },
-  "whatsappLink": "https://wa.link/qekp5g",
+  "whatsappLink": "https://wa.link/ckaxg3",
   "bonusDeadline": "2026-11-18T07:00:00-03:00"
 };
