@@ -1,0 +1,38 @@
+/* Retratos das experts: recorte comum em 4:5, com escala e olhos alinhados. */
+#quem-conduz .expert-portrait {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 4 / 5;
+  margin: 0 auto 26px;
+  border-radius: 18px;
+  background: #d3d1ca;
+  box-shadow: 0 14px 34px rgb(24 35 34 / 14%), 0 0 0 1px rgb(24 35 34 / 7%);
+}
+#quem-conduz .expert-portrait > img {
+  position: absolute;
+  display: block;
+  width: var(--expert-width);
+  max-width: none;
+  height: auto;
+  aspect-ratio: auto;
+  left: var(--expert-left);
+  top: var(--expert-top);
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  object-fit: initial;
+  object-position: initial;
+  filter: none;
+  mix-blend-mode: normal;
+  mask: none;
+  -webkit-mask: none;
+}
+#quem-conduz .expert-portrait--flavia { --expert-width: 100%; --expert-left: 0%; --expert-top: -7.497657%; }
+#quem-conduz .expert-portrait--liliane { --expert-width: 100%; --expert-left: 0%; --expert-top: -8.997188%; }
+#quem-conduz .expert-portrait--rafaela { --expert-width: 104.921260%; --expert-left: -2.460630%; --expert-top: -25.590551%; }
+@media (max-width: 600px) {
+  #quem-conduz .expert-portrait { margin-bottom: 22px; }
+}
