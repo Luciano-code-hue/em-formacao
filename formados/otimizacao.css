@@ -85,6 +85,11 @@ html { scroll-padding-top: 24px; }
 .limited-bonus p:last-child { font-size: 19px; color: #526b84; line-height: 1.75; }
 .limited-bonus p:last-child strong { font-weight: 750; color: #315880; }
 .guarantee p:last-child { font-size: 17px; line-height: 1.75; }
+.audience-intro { display: block; }
+.audience-story { max-width: 850px; margin-top: 0; }
+.guarantee-mark { display: grid; place-items: center; width: 80px; height: 80px; color: #305780; background: #f6f9fc; border: 1px solid #c7d5e4; border-radius: 20px; }
+.guarantee-mark > .icon { position: static; width: 56px; height: 56px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.guarantee-mark .icon path:last-child { display: block; }
 .faq summary { font-size: 18px; }
 .faq-answer { font-size: 17px; line-height: 1.8; }
 .showcase-heading { display: block; max-width: 950px; }
@@ -170,6 +175,8 @@ html { scroll-padding-top: 24px; }
   .limited-bonus .limited-bonus-label { font-size: 21px; padding: 12px; gap: 10px; }
   .limited-bonus h3 { font-size: 28px; }
   .limited-bonus p:last-child { font-size: 18px; }
+  .guarantee-mark { width: 62px; height: 62px; border-radius: 16px; margin-top: 0; }
+  .guarantee-mark > .icon { width: 44px; height: 44px; }
   .faq summary { font-size: 17px; }
   .faq-answer { font-size: 16px; }
   .course-description { font-size: 16px; }
