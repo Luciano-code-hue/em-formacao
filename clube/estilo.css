@@ -338,3 +338,150 @@ p { margin: 0 0 1em; color: var(--texto-suave); text-wrap: pretty; }
 /* Último momento à esquerda para não cobrir a cadeira vazia no centro do vídeo */
 .momento--final { max-width: 520px; }
 @media (max-width: 860px) { .momento--final { bottom: 6vh; } }
+
+/* ══ Versão 2 (23/11/2026): topo não flutua, blocos coloridos, menos espaço, destaques ══ */
+:root { --ouro: #e8b65a; }
+strong { font-weight: 650; color: var(--texto); }
+h2 em, h1 em { font-style: normal; color: var(--acento); }
+
+/* Topo: fica só no início da página */
+.topo { position: absolute; background: none !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; padding: 16px var(--gutter); }
+.topo .menu-cta { text-decoration: none; font-size: 14px; letter-spacing: .02em; background: rgb(13 24 40 / .55); border: 1px solid rgb(246 241 233 / .3); }
+
+/* Abertura */
+.cine { height: 420vh; }
+.sobretitulo { margin: 0 0 12px; font-size: 13px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--acento); }
+.momento--abertura { max-width: 700px; }
+.momento--abertura h1 { font-size: clamp(34px, 4.4vw, 64px); }
+.momento--abertura .apoio { margin-bottom: 22px; }
+.destaque strong { color: var(--acento); font-weight: 400; }
+
+/* Seções: menos espaço e cor própria em cada bloco */
+.secao { min-height: 0; padding: clamp(64px, 10vh, 110px) var(--gutter); gap: 22px; }
+.secao:has(.arte--direita), .secao:has(.arte--esquerda) { min-height: 82vh; }
+.secao--a { background: #0d1828; }
+.secao--b { background: linear-gradient(180deg, #0f2a3c, #0d2233); }
+.secao--c { background: #08111f; }
+.secao--vsl { background: #08111f; justify-items: center; }
+.secao--planos { background: radial-gradient(120% 70% at 50% 0%, #13394a 0%, #0b1d2c 60%, #091726 100%); }
+.secao--clara {
+  --texto: #0d1828; --texto-suave: #3b4859; --linha: rgb(13 24 40 / .12); --painel: rgb(255 255 255 / .72); --mistura: multiply;
+  background: #f6f1e9; color: var(--texto);
+}
+.secao--clara .painel { backdrop-filter: none; -webkit-backdrop-filter: none; box-shadow: 0 8px 30px rgb(13 24 40 / .06); }
+.secao--clara h2 em { color: #0f8f8d; }
+.secao--larga > .botao { justify-self: center; margin-top: 6px; }
+.painel .botao { margin-top: 10px; }
+.cabecalho { width: 100%; max-width: var(--largura); text-align: center; }
+.cabecalho h2 { margin-bottom: .25em; }
+.cabecalho p { margin: 0 auto; max-width: 640px; font-size: clamp(17px, 1.3vw, 20px); }
+.frase { margin-bottom: .4em; }
+.asterisco { text-align: center; }
+.rotulo { display: none; }
+
+/* VSL */
+.vsl-moldura { position: relative; width: 100%; max-width: 980px; aspect-ratio: 16 / 9; border-radius: var(--raio); overflow: hidden; background: #050b15; border: 1px solid var(--linha); box-shadow: 0 30px 80px rgb(0 0 0 / .45); }
+.vsl-video, .vsl-video iframe, .vsl-video video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.vsl-vazio { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; margin: 0; color: var(--texto-suave); font-family: var(--fonte-titulo); font-size: clamp(18px, 2vw, 26px); border: 2px dashed rgb(25 194 192 / .4); border-radius: var(--raio); }
+.vsl-vazio small { font-family: var(--fonte-texto); font-size: 13px; }
+.vsl-som { position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); font: 600 15px var(--fonte-texto); color: var(--acento-texto); background: var(--acento); border: 0; border-radius: 999px; padding: 12px 22px; cursor: pointer; }
+
+/* Dores */
+.dores li { padding: 20px 24px; }
+.dor { margin-bottom: .4em; }
+
+/* Como funciona: diferencial visual dos dois encontros */
+.mes { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; width: 100%; max-width: 860px; }
+.mes li { border-radius: 999px; padding: 10px 16px; text-align: center; font-weight: 700; font-size: 15px; display: grid; line-height: 1.25; }
+.mes li span { font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; opacity: .8; }
+.mes-mesa { background: var(--acento); color: #08202a; }
+.mes-atual { background: var(--ouro); color: #2b1d05; }
+.mes-com { background: rgb(246 241 233 / .12); color: var(--texto); border: 1px dashed rgb(246 241 233 / .35); }
+.encontros { width: 100%; max-width: var(--largura); display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.encontro { position: relative; border-radius: 22px; padding: clamp(24px, 3vw, 40px); display: flex; flex-direction: column; }
+.encontro--mesa { background: linear-gradient(160deg, #0f4450 0%, #0b2a38 70%); border: 1px solid rgb(25 194 192 / .55); --cor: var(--acento); }
+.encontro--atual { background: linear-gradient(160deg, #43331a 0%, #231c14 70%); border: 1px solid rgb(232 182 90 / .55); --cor: var(--ouro); }
+.encontro-icone { width: 56px; height: 56px; color: var(--cor); margin-bottom: 14px; }
+.encontro-tag { margin: 0; font-size: 12px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--cor); }
+.encontro h3 { font-size: clamp(26px, 2.4vw, 36px); font-weight: 400; margin: .2em 0 .3em; }
+.encontro-resumo { color: var(--texto); font-size: 17px; }
+.encontro-passos { list-style: none; counter-reset: e; margin: 4px 0 20px; padding: 0; display: grid; gap: 8px; }
+.encontro-passos li { counter-increment: e; display: flex; gap: 12px; align-items: center; background: rgb(0 0 0 / .22); border-radius: 12px; padding: 10px 14px; font-size: 15px; }
+.encontro-passos li::before { content: counter(e); flex: none; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-size: 13px; font-weight: 700; background: var(--cor); color: #0d1828; }
+.encontro-sai { margin: auto 0 0; padding: 14px 16px; border-left: 3px solid var(--cor); background: rgb(255 255 255 / .05); border-radius: 0 12px 12px 0; color: var(--texto); }
+.encontro-sai span { display: block; font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--cor); margin-bottom: 2px; }
+
+/* Para quem é */
+.painel--sim { border-color: rgb(25 194 192 / .45); }
+.painel--nao { border-color: rgb(227 154 144 / .35); }
+
+/* Planos: o que só o anual tem */
+.economia { width: 100%; max-width: 860px; margin: 0; text-align: center; font-size: clamp(17px, 1.4vw, 21px); color: var(--texto); background: rgb(232 182 90 / .12); border: 1px solid rgb(232 182 90 / .5); border-radius: 16px; padding: 16px 22px; }
+.economia strong { color: var(--ouro); }
+.plano { position: relative; background: rgb(16 29 49 / .7); border: 1px solid var(--linha); border-radius: var(--raio); padding: clamp(24px, 2.6vw, 36px); }
+.plano--anual { background: linear-gradient(165deg, #173e4c 0%, #10283a 55%, #0f2234 100%); border: 2px solid var(--ouro); box-shadow: 0 24px 60px rgb(232 182 90 / .16); }
+.plano--anual .selo { background: var(--ouro); color: #2b1d05; }
+.so-anual-titulo { margin: 0 0 10px; font-size: 12px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--ouro); }
+.plano .lista { flex: none; margin-bottom: 14px; }
+.lista--ouro { background: rgb(232 182 90 / .1); border-radius: 12px; padding: 14px 14px 14px 12px; }
+.lista--ouro li { color: var(--texto); }
+.lista--ouro li::before { content: "\2605"; color: var(--ouro); }
+.lista--falta li { color: rgb(184 191 202 / .6); }
+.lista--falta li::before { content: "\00D7"; color: rgb(184 191 202 / .5); font-size: 1.2em; line-height: 1.3; }
+.tudo-mais { font-size: 14px; color: var(--acento); margin: auto 0 18px; }
+.botao--ouro { background: var(--ouro); color: #2b1d05; }
+.incluido { width: 100%; max-width: var(--largura); text-align: center; }
+.incluido h3 { font-size: 15px; font-family: var(--fonte-texto); font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--acento); }
+.incluido ul { list-style: none; padding: 0; margin: 0 0 14px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.incluido li { font-size: 14px; padding: 7px 13px; border-radius: 999px; background: rgb(25 194 192 / .1); border: 1px solid rgb(25 194 192 / .3); }
+.garantia { background: rgb(16 29 49 / .6); border: 1px solid var(--linha); border-radius: var(--raio); padding: 22px 26px; max-width: 860px; }
+
+/* FAQ no bloco claro */
+.secao--clara .faq summary::after { color: #0f8f8d; }
+.secao--clara .faq-grupo { color: #0f8f8d; }
+.faq details p { color: var(--texto-suave); }
+
+/* Contato: faixa turquesa */
+.secao--contato { background: var(--acento); color: #0d1828; justify-items: center; text-align: center; }
+.secao--contato h2 { color: #0d1828; }
+.secao--contato p { color: #12323a; max-width: 560px; margin-left: auto; margin-right: auto; }
+.botao--escuro { background: #0d1828; color: #f6f1e9; }
+.painel--contato { width: 100%; max-width: 760px; }
+
+/* Rodapé */
+.rodape { background: #08111f; padding: 24px var(--gutter); }
+.rodape-painel { max-width: var(--largura); margin: 0 auto; display: flex; flex-wrap: wrap; gap: 12px 32px; align-items: center; justify-content: space-between; font-size: 14px; color: var(--texto-suave); background: none; border: 0; backdrop-filter: none; padding: 0; }
+
+/* ── Celular ── */
+@media (max-width: 860px) {
+  .cine { height: 300vh; }
+  .momento--abertura { bottom: 3vh; }
+  .momento--abertura .painel { padding: 20px 20px 22px; }
+  .momento--abertura h1 { font-size: clamp(26px, 7.4vw, 34px); margin-bottom: .35em; }
+  .momento--abertura .apoio { font-size: 15px; margin-bottom: 16px; }
+  .momento--abertura .botao, .momento--final .botao { width: 100%; }
+  .sobretitulo { font-size: 11px; margin-bottom: 8px; }
+  .secao { padding: 48px var(--gutter); gap: 16px; }
+  .secao:has(.arte--direita), .secao:has(.arte--esquerda) { min-height: 0; }
+  .secao-grade .painel { margin-top: 30vw; }
+  .encontros { grid-template-columns: 1fr; }
+  .mes { grid-template-columns: 1fr 1fr; }
+  .mes-com { grid-column: 1 / -1; }
+  .dores { gap: 10px; }
+  .dores li { padding: 16px 18px; }
+  .dor { font-size: 18px; }
+  .secao--larga > .botao { width: 100%; }
+  .painel { padding: 22px 20px; }
+  .economia { padding: 14px 16px; }
+  .plano--anual { order: -1; }
+  .professoras { gap: 14px; }
+  .faq summary { padding: 16px 48px 16px 18px; }
+  .faq details p { padding: 0 18px 18px; }
+  .contato-acoes .botao { width: 100%; }
+  .rodape-painel { justify-content: center; text-align: center; }
+}
+@media (max-width: 400px) { .marca-texto { display: none; } }
+
+.encontro h3 { color: var(--cor); }
+@media (max-width: 860px) { .cine-dica { display: none; } }
+@media (min-width: 861px) { .momento--abertura h1 { font-size: clamp(32px, 3.5vw, 54px); } .momento--abertura { bottom: 9vh; } }

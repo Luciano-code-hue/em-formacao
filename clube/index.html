@@ -38,43 +38,41 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TF9PPGQC" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
+<!-- Topo fixo no início da página (não acompanha a rolagem) -->
 <header class="topo">
   <a href="#inicio" class="marca" aria-label="Clube de Estudos do Sono">
     <img src="assets/logo.png" alt="" class="marca-logo">
     <span class="marca-texto">Clube de Estudos do Sono</span>
   </a>
-  <nav class="menu" aria-label="Seções">
-    <a href="#como-funciona">Como funciona</a>
-    <a href="#professoras">Professoras</a>
-    <a href="#planos">Planos</a>
-    <a href="#duvidas">Dúvidas</a>
-    <a href="https://hotmart.com/pt-br/club/fisioterapeutas-do-sono-educacao-consultoria-e-assistencia-em-saude-ltda" class="menu-cta" target="_blank" rel="noopener">Já sou aluno</a>
-  </nav>
+  <a href="https://hotmart.com/pt-br/club/fisioterapeutas-do-sono-educacao-consultoria-e-assistencia-em-saude-ltda" class="menu-cta" target="_blank" rel="noopener">Já sou aluno</a>
 </header>
 
 <main>
 
-  <!-- ABERTURA: o vídeo toca com a rolagem (janela à noite → a mesa → a cadeira vaga) -->
-  <section id="inicio" class="cine" style="--altura: 440vh">
+  <!-- ABERTURA: o vídeo toca com a rolagem (janela à noite → a mesa → a cadeira vaga).
+       O 1º momento já mostra nome, transformação e botão (aparece completo no celular). -->
+  <section id="inicio" class="cine">
     <div class="cine-palco">
       <canvas class="cine-canvas" aria-hidden="true"></canvas>
       <div class="cine-vinheta"></div>
 
-      <div class="momento" data-de="0" data-ate="0.3">
+      <div class="momento momento--abertura" data-de="0" data-ate="0.3">
         <div class="painel painel--vidro">
-          <h1 class="titulo-abertura">O paciente não chega dividido em especialidades.</h1>
-          <p class="apoio">Seu raciocínio também não deveria estar.</p>
+          <p class="sobretitulo">Clube de Estudos do Sono</p>
+          <h1 class="titulo-abertura">O paciente não chega dividido em especialidades. <em>Seu raciocínio também não deveria estar.</em></h1>
+          <p class="apoio">Casos reais e ciência do sono discutidos <strong>ao vivo, duas vezes por mês</strong>, com profissionais que veem o mesmo paciente por outros ângulos.</p>
+          <a href="#planos" class="botao">Quero ocupar meu lugar à mesa</a>
         </div>
       </div>
       <div class="momento momento--direita" data-de="0.36" data-ate="0.66">
         <div class="painel painel--vidro">
-          <p class="destaque">Duas quartas por mês, uma mesa.</p>
-          <p class="apoio">Casos reais na Mesa Clínica do Sono, ciência com contexto na Atualização Aplicada e profissionais que olham o mesmo paciente por outros ângulos.</p>
+          <p class="destaque">Duas quartas por mês, <strong>uma mesa.</strong></p>
+          <p class="apoio"><strong>Mesa Clínica do Sono</strong> para os casos. <strong>Atualização Aplicada</strong> para a ciência.</p>
         </div>
       </div>
       <div class="momento momento--final" data-de="0.74" data-ate="1">
         <div class="painel painel--vidro">
-          <p class="destaque">Tem um lugar vago nessa mesa.</p>
+          <p class="destaque">Tem um <strong>lugar vago</strong> nessa mesa.</p>
           <a href="#planos" class="botao">Quero ocupar meu lugar à mesa</a>
         </div>
       </div>
@@ -83,78 +81,105 @@
     </div>
   </section>
 
-  <!-- 01 · DEPOIS DA FORMAÇÃO -->
-  <section id="depois" class="secao">
+  <!-- VSL: toca sozinho (sem som) quando aparece na tela. Endereço do vídeo em config.js → vsl.
+       Sem vídeo configurado, o bloco fica escondido no site publicado. -->
+  <section id="vsl" class="secao secao--vsl" hidden>
+    <div class="vsl-moldura">
+      <div class="vsl-video" data-vsl></div>
+      <button class="vsl-som" type="button" hidden>Toque para ativar o som</button>
+    </div>
+    <a href="#planos" class="botao">Quero ocupar meu lugar à mesa</a>
+  </section>
+
+  <!-- DEPOIS DA FORMAÇÃO -->
+  <section id="depois" class="secao secao--a">
     <img class="arte arte--direita" src="assets/img/depois.webp" alt="" loading="lazy">
     <div class="secao-grade">
       <div class="painel revelar">
-        <span class="rotulo">01</span>
         <h2>Falta uma mesa.</h2>
-        <p>Você termina a formação, volta para o consultório e aparece o paciente que não responde como deveria. A dúvida fica rondando: sigo com a conduta ou já é hora de outro profissional entrar?</p>
-        <p>Aí você procura um artigo, manda mensagem para um colega, assiste a uma aula solta, espera o próximo congresso. Tudo ajuda um pouco, nada resolve o principal: um lugar fixo para colocar o caso na mesa e ouvir quem pensa diferente de você.</p>
-        <p class="frase">O Clube de Estudos do Sono existe para ocupar esse espaço.</p>
+        <p>Você termina a formação e aparece o paciente que <strong>não responde como deveria</strong>. Sigo com a conduta ou já é hora de outro profissional entrar?</p>
+        <p>Artigo solto, mensagem para um colega, o próximo congresso. Ajuda, mas falta o principal: <strong>um lugar fixo para levar o caso e ouvir quem pensa diferente.</strong></p>
+        <p class="frase">O Clube existe para ocupar esse espaço.</p>
+        <a href="#planos" class="botao">Quero ocupar meu lugar à mesa</a>
       </div>
     </div>
   </section>
 
-  <!-- 02 · DORES E DESEJOS (vindas do calendário 2027, sem citar os temas) -->
-  <section id="em-2027" class="secao secao--larga">
+  <!-- DORES E DESEJOS (vindas do calendário 2027, sem citar os temas) -->
+  <section id="em-2027" class="secao secao--larga secao--b">
     <img class="arte arte--fundo" src="assets/img/dores.webp" alt="" loading="lazy">
-    <div class="painel painel--cabecalho revelar">
-      <span class="rotulo">02</span>
+    <div class="cabecalho revelar">
       <h2>Os casos que você vai parar de carregar sozinho em 2027</h2>
-      <p>Situações que travam qualquer profissional do sono, de qualquer área. Ao longo do ano elas vão para a mesa, uma de cada vez.</p>
+      <p>Um de cada vez, eles vão para a mesa.</p>
     </div>
     <ul class="dores">
-      <li class="painel revelar"><p class="dor">O exame veio normal e o paciente diz que está exausto.</p><p class="desejo">Saber onde mais procurar quando o laudo não explica o cansaço.</p></li>
-      <li class="painel revelar"><p class="dor">A saturação cai à noite, mas o IAH é baixo.</p><p class="desejo">Ler a oximetria além do número e decidir o que fazer com ela.</p></li>
-      <li class="painel revelar"><p class="dor">Ele usa o CPAP todas as noites e continua com sono.</p><p class="desejo">Ter um raciocínio para o que vem depois da adesão.</p></li>
-      <li class="painel revelar"><p class="dor">Ela não quer o CPAP. E ponto.</p><p class="desejo">Ter o que oferecer e saber conduzir essa conversa.</p></li>
-      <li class="painel revelar"><p class="dor">A dor piora o sono e o sono piora a dor.</p><p class="desejo">Entender por onde começar e com quem dividir o caso.</p></li>
-      <li class="painel revelar"><p class="dor">Idoso com cinco remédios. Paciente pós-AVC. Paciente com Parkinson.</p><p class="desejo">Enxergar onde o sono entra no paciente complexo.</p></li>
-      <li class="painel revelar"><p class="dor">A mulher que parou de dormir na menopausa. A gestante que começou a roncar.</p><p class="desejo">Reconhecer o que muda no sono em cada fase da vida da mulher.</p></li>
-      <li class="painel revelar"><p class="dor">O paciente com doença pulmonar que piora à noite.</p><p class="desejo">Separar o que é da doença e o que é do sono.</p></li>
-      <li class="painel revelar"><p class="dor">Ele chega com os gráficos do relógio e quer uma resposta.</p><p class="desejo">Saber o que esses dados dizem, o que não dizem e como explicar.</p></li>
-      <li class="painel revelar"><p class="dor">Ansiedade, cafeína, treino pesado: todo mundo tem uma opinião.</p><p class="desejo">Responder ao paciente com evidência, não com achismo.</p></li>
+      <li class="painel revelar"><p class="dor">O exame veio normal e o paciente diz que está exausto.</p><p class="desejo">Saber <strong>onde mais procurar</strong> quando o laudo não explica.</p></li>
+      <li class="painel revelar"><p class="dor">A saturação cai à noite, mas o IAH é baixo.</p><p class="desejo">Ler a oximetria <strong>além do número</strong>.</p></li>
+      <li class="painel revelar"><p class="dor">Ele usa o CPAP todas as noites e continua com sono.</p><p class="desejo">Saber <strong>o que vem depois da adesão</strong>.</p></li>
+      <li class="painel revelar"><p class="dor">Ela não quer o CPAP. E ponto.</p><p class="desejo">Ter <strong>o que oferecer</strong> e como conduzir a conversa.</p></li>
+      <li class="painel revelar"><p class="dor">A dor piora o sono e o sono piora a dor.</p><p class="desejo">Saber <strong>por onde começar</strong> e com quem dividir.</p></li>
+      <li class="painel revelar"><p class="dor">Idoso com cinco remédios. Pós-AVC. Parkinson.</p><p class="desejo">Enxergar <strong>onde o sono entra</strong> no paciente complexo.</p></li>
+      <li class="painel revelar"><p class="dor">Parou de dormir na menopausa. Começou a roncar na gestação.</p><p class="desejo">Entender <strong>o sono em cada fase da vida da mulher</strong>.</p></li>
+      <li class="painel revelar"><p class="dor">A doença pulmonar que piora à noite.</p><p class="desejo">Separar <strong>o que é da doença e o que é do sono</strong>.</p></li>
+      <li class="painel revelar"><p class="dor">Ele chega com os gráficos do relógio.</p><p class="desejo">Saber <strong>o que esses dados dizem e o que não dizem</strong>.</p></li>
+      <li class="painel revelar"><p class="dor">Ansiedade, cafeína, treino: todo mundo opina.</p><p class="desejo">Responder <strong>com evidência, não com achismo</strong>.</p></li>
     </ul>
+    <a href="#planos" class="botao revelar">Quero esses casos na minha mesa</a>
   </section>
 
-  <!-- 03 · COMO FUNCIONA -->
-  <section id="como-funciona" class="secao">
-    <img class="arte arte--esquerda" src="assets/img/funciona.webp" alt="" loading="lazy">
-    <div class="secao-grade secao-grade--direita">
-      <div class="painel revelar">
-        <span class="rotulo">03</span>
-        <h2>Dois encontros ao vivo por mês</h2>
-        <div class="encontros">
-          <div>
-            <h3>Mesa Clínica do Sono</h3>
-            <p>Um caso real é aberto na sua frente: o que chamou atenção, as hipóteses, as lacunas e o momento em que outra perspectiva muda a leitura do caso. Você pergunta, discorda, confronta a sua decisão com a da mesa e sai enxergando melhor os próximos pacientes.</p>
-          </div>
-          <div>
-            <h3>Atualização Aplicada</h3>
-            <p>Artigos e evidências escolhidos a dedo, às vezes com especialistas convidados. Para cada um, as mesmas perguntas: o que a evidência mostra, para quem se aplica, quais são os limites e que peso deve ter na prática. Você para de tentar acompanhar sozinho tudo o que sai.</p>
-          </div>
-        </div>
-        <ol class="passos">
-          <li><strong>Um caso coloca o raciocínio em movimento.</strong><span>Antes de qualquer resposta, a pergunta certa.</span></li>
-          <li><strong>A mesa entra na conversa.</strong><span>Profissionais diferentes leem o mesmo paciente.</span></li>
-          <li><strong>A ciência é colocada em perspectiva.</strong><span>O que a evidência sustenta e o que ainda não.</span></li>
-          <li><strong>A discussão continua.</strong><span>Na comunidade, até o próximo encontro.</span></li>
-        </ol>
-      </div>
+  <!-- COMO FUNCIONA: diferencial visual entre os dois encontros -->
+  <section id="como-funciona" class="secao secao--larga secao--c">
+    <img class="arte arte--fundo arte--suave" src="assets/img/funciona.webp" alt="" loading="lazy">
+    <div class="cabecalho revelar">
+      <h2>Dois encontros ao vivo por mês. <em>Cada um com uma missão.</em></h2>
     </div>
+
+    <ol class="mes revelar" aria-label="O mês no Clube">
+      <li class="mes-mesa"><span>Encontro 1</span>Mesa Clínica</li>
+      <li class="mes-atual"><span>Encontro 2</span>Atualização Aplicada</li>
+      <li class="mes-com"><span>O mês todo</span>Comunidade</li>
+    </ol>
+
+    <div class="encontros">
+      <article class="encontro encontro--mesa revelar">
+        <svg class="encontro-icone" viewBox="0 0 64 64" aria-hidden="true"><rect x="12" y="26" width="40" height="12" rx="6" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="20" cy="16" r="5" fill="currentColor"/><circle cx="44" cy="16" r="5" fill="currentColor"/><circle cx="20" cy="48" r="5" fill="currentColor" opacity=".55"/><circle cx="44" cy="48" r="5" fill="currentColor" opacity=".55"/><circle cx="32" cy="32" r="2.6" fill="currentColor"/></svg>
+        <p class="encontro-tag">A prática em discussão</p>
+        <h3>Mesa Clínica do Sono</h3>
+        <p class="encontro-resumo">Um <strong>caso real</strong>, aberto do começo ao fim.</p>
+        <ol class="encontro-passos">
+          <li>O caso é apresentado</li>
+          <li>Hipóteses e lacunas</li>
+          <li>Outras profissões leem o mesmo paciente</li>
+          <li>Sua decisão confrontada com a mesa</li>
+        </ol>
+        <p class="encontro-sai"><span>Você sai com</span><strong>mais segurança para decidir</strong> nos próximos casos.</p>
+      </article>
+
+      <article class="encontro encontro--atual revelar">
+        <svg class="encontro-icone" viewBox="0 0 64 64" aria-hidden="true"><path d="M16 8h22l10 10v30H16z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M22 22h14M22 29h20M22 36h12" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><circle cx="44" cy="44" r="8" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="m50 50 7 7" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+        <p class="encontro-tag">A ciência em perspectiva</p>
+        <h3>Atualização Aplicada</h3>
+        <p class="encontro-resumo">Artigos <strong>escolhidos a dedo</strong>, às vezes com convidados.</p>
+        <ol class="encontro-passos">
+          <li>O que a evidência mostra?</li>
+          <li>Para quem se aplica?</li>
+          <li>Quais são os limites?</li>
+          <li>Que peso ter na prática?</li>
+        </ol>
+        <p class="encontro-sai"><span>Você sai com</span><strong>o que muda, e o que não muda,</strong> no seu consultório.</p>
+      </article>
+    </div>
+    <a href="#planos" class="botao revelar">Quero participar dos encontros</a>
   </section>
 
-  <!-- 04 · MUITAS LENTES, UM PACIENTE -->
-  <section id="multiprofissional" class="secao">
+  <!-- MUITAS LENTES, UM PACIENTE -->
+  <section id="multiprofissional" class="secao secao--a">
     <img class="arte arte--direita" src="assets/img/lentes.webp" alt="" loading="lazy">
     <div class="secao-grade">
       <div class="painel revelar">
-        <span class="rotulo">04</span>
         <h2>Um paciente, várias lentes</h2>
-        <p>O mesmo caso pode envolver respiração, dor, função, comportamento, estruturas orofaciais e adesão ao tratamento. Ninguém precisa dominar o trabalho de todas as profissões, mas todo mundo precisa saber onde termina o seu e onde começa o do outro, para conversar e encaminhar melhor.</p>
-        <p>Por isso o Clube reúne fisioterapeutas, dentistas, médicos, fonoaudiólogos, biomédicos e outros profissionais da saúde que atendem o sono.</p>
+        <p>Respiração, dor, função, comportamento, estruturas orofaciais, adesão. <strong>Ninguém domina tudo, mas todo mundo precisa saber onde o outro entra.</strong></p>
+        <p>Por isso a mesa reúne <strong>fisioterapeutas, dentistas, médicos, fonoaudiólogos e biomédicos</strong>.</p>
         <h3 class="subtitulo">Já passaram pela mesa</h3>
         <ul class="convidados">
           <li><strong>Alexandre Annibale</strong><span>dentista</span></li>
@@ -164,54 +189,52 @@
           <li><strong>Gabriel Pires</strong><span>biomédico</span></li>
           <li><strong>Georgea Brito</strong><span>fisioterapeuta</span></li>
         </ul>
-        <p class="nota">Ao longo do ano também entram formatos especiais: Mesa das Interfaces, Mesa das Controvérsias, Grandes Casos Clínicos, painéis multiprofissionais, desafios de raciocínio e retrospectivas científicas.</p>
+        <a href="#planos" class="botao">Quero ocupar meu lugar à mesa</a>
       </div>
     </div>
   </section>
 
-  <!-- 05 · O QUE VOCÊ CONSTRÓI -->
-  <section id="constroi" class="secao secao--larga">
+  <!-- O QUE VOCÊ CONSTRÓI -->
+  <section id="constroi" class="secao secao--larga secao--b">
     <img class="arte arte--fundo" src="assets/img/constroi.webp" alt="" loading="lazy">
-    <div class="painel painel--cabecalho revelar">
-      <span class="rotulo">05</span>
-      <h2>Os encontros são o que você recebe. O resto você constrói.</h2>
+    <div class="cabecalho revelar">
+      <h2>Os encontros são o que você recebe. <em>O resto você constrói.</em></h2>
     </div>
     <div class="blocos">
       <article class="painel revelar">
         <h3>Comunidade</h3>
-        <p>Um espaço só de membros para preparar os casos, continuar as discussões, trocar materiais e conhecer quem atende sono de verdade. Contatos viram colegas de confiança, e você deixa de ser só um nome numa lista.</p>
+        <p>As discussões continuam entre os encontros. <strong>Contatos viram colegas de confiança.</strong></p>
       </article>
       <article class="painel revelar">
         <h3>Seus casos na mesa</h3>
-        <p>Você pode enviar um caso seu para avaliação. Apresenta o contexto e o ponto exato da dúvida, e a mesa ajuda a pensar. Participar é uma oportunidade, nunca uma obrigação.</p>
+        <p>Envie um caso seu para avaliação. <strong>Participar é oportunidade, nunca obrigação.</strong></p>
       </article>
       <article class="painel revelar">
-        <h3>Protagonismo e Vitrine Profissional</h3>
-        <p>Quem participa e cumpre os critérios pode apresentar casos em experiências selecionadas, fazer collabs e entrar na Vitrine Profissional, com foto, formação, área de atuação, cidade e contatos. É visibilidade dentro do ecossistema Fisioterapeutas do Sono, sem promessa de pacientes ou contratos.</p>
+        <h3>Protagonismo e Vitrine</h3>
+        <p>Quem cumpre os critérios pode apresentar casos, fazer collabs e entrar na <strong>Vitrine Profissional</strong> do ecossistema.*</p>
       </article>
       <article class="painel revelar">
         <h3>Benefícios de membro</h3>
-        <p>Curadoria de materiais, até 15% de desconto em formações elegíveis, acesso antecipado a novas formações e experiências e as gravações dos encontros enquanto a assinatura estiver ativa.</p>
+        <p><strong>Até 15% em formações elegíveis</strong>, acesso antecipado, curadoria e gravações enquanto a assinatura estiver ativa.*</p>
       </article>
     </div>
+    <p class="asterisco">* Sujeito a critérios de elegibilidade, participação, disponibilidade e regras vigentes. A Vitrine não garante pacientes ou contratos.</p>
+    <a href="#planos" class="botao revelar">Quero fazer parte</a>
   </section>
 
-  <!-- 06 · PROFESSORAS (fotos reais) -->
-  <section id="professoras" class="secao secao--larga">
-    <div class="painel painel--cabecalho revelar">
-      <span class="rotulo">06</span>
+  <!-- PROFESSORAS (fotos reais) · bloco claro -->
+  <section id="professoras" class="secao secao--larga secao--clara">
+    <div class="cabecalho revelar">
       <h2>Quem conduz a mesa</h2>
-      <p>Três fisioterapeutas do sono que vivem a clínica, a pesquisa e o ensino, e que abrem a mesa para outras profissões.</p>
+      <p>Três fisioterapeutas do sono entre a <strong>clínica, a pesquisa e o ensino</strong>.</p>
     </div>
     <div class="professoras">
       <article class="painel professora revelar">
         <img class="retrato" src="assets/fotos/flavia.webp" alt="Dra. Flávia Baggio Nerbass" loading="lazy">
         <h3>Dra. Flávia Baggio Nerbass</h3>
         <ul>
-          <li>Fisioterapeuta do sono certificada pela ABS e pela ASSOBRAFIR (Notório Saber)</li>
-          <li>Doutora em Ciências pela FMUSP, no Laboratório do Sono do InCor-HCFMUSP</li>
-          <li>Especialista em Fisioterapia Cardiorrespiratória (InCor-HCFMUSP) e em Fisiologia do Exercício (UNIFESP)</li>
-          <li>Membro da ASSOBRAFIR regional Minas Gerais e da Liga Mineira de Sono</li>
+          <li><strong>Doutora pela FMUSP</strong>, Laboratório do Sono do InCor-HCFMUSP</li>
+          <li>Fisioterapeuta do sono certificada pela <strong>ABS e ASSOBRAFIR</strong> (Notório Saber)</li>
           <li>Sócia-diretora da TRINO e sócia-fundadora da Fisioterapeutas do Sono</li>
         </ul>
       </article>
@@ -219,127 +242,138 @@
         <img class="retrato" src="assets/fotos/liliane.webp" alt="Dra. Liliane P. de Souza Mendes" loading="lazy">
         <h3>Dra. Liliane P. de Souza Mendes</h3>
         <ul>
-          <li>Doutora e mestre em Ciências da Reabilitação pela UFMG</li>
-          <li>PhD em Health Sciences pela Universidade de Sydney</li>
-          <li>Co-coordenadora do programa de reabilitação pulmonar da UFMG</li>
-          <li>Fisioterapeuta da Singular Fisioterapia Cardiorrespiratória e certificada em Fisioterapia do Sono pela ABS</li>
-          <li>Sócia-diretora da TRINO, membro da Liga Mineira de Sono e sócia-fundadora da Fisioterapeutas do Sono</li>
+          <li><strong>PhD pela Universidade de Sydney</strong>, doutora e mestre pela UFMG</li>
+          <li>Co-coordenadora da <strong>reabilitação pulmonar da UFMG</strong></li>
+          <li>Certificada pela ABS, sócia-diretora da TRINO e sócia-fundadora da Fisioterapeutas do Sono</li>
         </ul>
       </article>
       <article class="painel professora revelar">
         <img class="retrato retrato--rafaela" src="assets/fotos/rafaela.webp" alt="Dra. Rafaela Garcia Santos de Andrade" loading="lazy">
         <h3>Dra. Rafaela Garcia Santos de Andrade</h3>
         <ul>
-          <li>Doutora em Ciências pela FMUSP, no Laboratório do Sono do InCor-HCFMUSP, onde integra o grupo de pesquisa</li>
-          <li>Especialista em Fisioterapia Cardiorrespiratória pelo InCor-HCFMUSP</li>
-          <li>Certificada em Fisioterapia do Sono pela ABS e pela ASSOBRAFIR (Notório Saber)</li>
-          <li>Revisora do Jornal Brasileiro de Pneumologia, da ASSOBRAFIR Ciência e da CLINICS</li>
+          <li><strong>Doutora pela FMUSP</strong>, pesquisadora do Laboratório do Sono do InCor</li>
+          <li>Certificada pela <strong>ABS e ASSOBRAFIR</strong>; revisora do J Bras Pneumol e da CLINICS</li>
           <li>Sócia da ATERPO e sócia-fundadora da Fisioterapeutas do Sono</li>
         </ul>
       </article>
     </div>
+    <a href="#planos" class="botao revelar">Quero estudar com elas</a>
   </section>
 
-  <!-- 07 · PARA QUEM É -->
-  <section id="para-quem" class="secao secao--larga">
-    <div class="painel painel--cabecalho revelar">
-      <span class="rotulo">07</span>
+  <!-- PARA QUEM É -->
+  <section id="para-quem" class="secao secao--larga secao--c">
+    <div class="cabecalho revelar">
       <h2>Para quem é, e para quem não é</h2>
     </div>
     <div class="duas-colunas">
-      <div class="painel revelar">
+      <div class="painel painel--sim revelar">
         <h3>É para você que</h3>
         <ul class="lista lista--sim">
-          <li>atua com sono ou tem interesse profissional consistente na área;</li>
-          <li>terminou uma formação e não quer parar de estudar;</li>
-          <li>quer desenvolver raciocínio, não só juntar certificados;</li>
-          <li>quer acompanhar a evidência sem pesquisar tudo sozinho;</li>
-          <li>quer entender como as outras profissões olham o mesmo paciente;</li>
-          <li>sente falta de uma rede qualificada para trocar casos.</li>
+          <li><strong>atua com sono</strong> ou tem interesse consistente na área;</li>
+          <li>terminou a formação e <strong>não quer parar de estudar</strong>;</li>
+          <li>quer <strong>raciocínio</strong>, não só certificados;</li>
+          <li>quer acompanhar a evidência <strong>sem pesquisar sozinho</strong>;</li>
+          <li>sente falta de uma <strong>rede qualificada</strong> para trocar casos.</li>
         </ul>
       </div>
-      <div class="painel revelar">
+      <div class="painel painel--nao revelar">
         <h3>Não é para você se</h3>
         <ul class="lista lista--nao">
-          <li>procura só um curso gravado para assistir sozinho;</li>
-          <li>precisa de uma formação básica, do zero ao avançado;</li>
-          <li>quer respostas prontas para todos os pacientes;</li>
-          <li>não tem interesse em ouvir quem pensa diferente;</li>
-          <li>quer só baixar materiais e sumir;</li>
-          <li>acha que o estudo termina no certificado.</li>
+          <li>procura só um <strong>curso gravado</strong>;</li>
+          <li>precisa de uma formação <strong>do zero</strong>;</li>
+          <li>quer <strong>respostas prontas</strong> para todo paciente;</li>
+          <li>não quer ouvir quem pensa diferente;</li>
+          <li>acha que o estudo <strong>termina no certificado</strong>.</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- 08 · PLANOS (checkouts Eduzz; UTMs repassadas pelo tracking.js) -->
-  <section id="planos" class="secao secao--larga">
-    <div class="painel painel--cabecalho revelar">
-      <span class="rotulo">08</span>
+  <!-- PLANOS (checkouts Eduzz; UTMs repassadas pelo tracking.js) -->
+  <section id="planos" class="secao secao--larga secao--planos">
+    <div class="cabecalho revelar">
       <h2>Escolha como quer sentar à mesa</h2>
-      <p>Alunos da Fisioterapeutas do Sono têm 20% de desconto em qualquer plano: use o botão “Sou aluno FS”.</p>
     </div>
+
+    <p class="economia revelar">No anual, cada mês sai por <strong>R$ 137</strong>. No mensal, os mesmos 12 meses custam R$ 2.964. <strong>São R$ 1.320 de economia, mais de 5 mensalidades.</strong></p>
+
     <div class="planos">
-      <article class="painel plano plano--destaque revelar">
-        <span class="selo">Recomendado</span>
+      <article class="plano plano--anual revelar">
+        <span class="selo">Mais vantajoso</span>
         <h3>Anual</h3>
         <p class="plano-nome">Jornada completa · 12 meses</p>
         <p class="preco"><small>12x</small> R$ 137</p>
         <p class="avista">ou R$ 1.644 à vista</p>
-        <ul class="lista lista--sim">
-          <li>Até 24 encontros ao vivo no ciclo</li>
-          <li>Mesa Clínica do Sono e Atualização Aplicada</li>
-          <li>Gravações, comunidade e experiências especiais</li>
-          <li>Trajetória completa: protagonismo e Vitrine Profissional*</li>
-          <li>Até 15% em formações elegíveis e acesso antecipado*</li>
+        <p class="so-anual-titulo">Só no anual</p>
+        <ul class="lista lista--ouro">
+          <li><strong>Até 24 encontros</strong> no ciclo</li>
+          <li><strong>Jornada completa e benefícios exclusivos</strong></li>
+          <li><strong>Menor valor por mês</strong>: R$ 137</li>
+          <li><strong>R$ 1.320 a menos</strong> que 12 meses no mensal</li>
         </ul>
-        <a class="botao" href="https://chk.eduzz.com/Q9N25EZB01" data-checkout data-plano="anual" target="_blank" rel="noopener">Quero o plano anual</a>
+        <p class="tudo-mais">+ tudo o que está incluído em todos os planos</p>
+        <a class="botao botao--ouro" href="https://chk.eduzz.com/Q9N25EZB01" data-checkout data-plano="anual" target="_blank" rel="noopener">Quero o plano anual</a>
         <a class="link-aluno" href="https://chk.eduzz.com/8017ERBK07" data-checkout data-plano="anual" data-aluno-fs="sim" target="_blank" rel="noopener">Sou aluno FS: anual com 20% off</a>
       </article>
-      <article class="painel plano revelar">
+
+      <article class="plano revelar">
         <h3>Semestral</h3>
         <p class="plano-nome">Continuidade · 6 meses</p>
         <p class="preco"><small>6x</small> R$ 157</p>
         <p class="avista">ou R$ 942 à vista</p>
         <ul class="lista lista--sim">
-          <li>Até 12 encontros ao vivo no ciclo</li>
-          <li>Mesa Clínica do Sono e Atualização Aplicada</li>
-          <li>Gravações, comunidade e experiências especiais</li>
-          <li>Trajetória parcial no protagonismo*</li>
-          <li>Benefícios em formações elegíveis*</li>
+          <li>Até 12 encontros no ciclo</li>
+          <li>Mais experiências e benefícios</li>
         </ul>
+        <ul class="lista lista--falta">
+          <li>Trajetória no Clube parcial</li>
+          <li>Sem os benefícios exclusivos do anual</li>
+          <li>R$ 20 a mais por mês que o anual</li>
+        </ul>
+        <p class="tudo-mais">+ tudo o que está incluído em todos os planos</p>
         <a class="botao botao--contorno" href="https://chk.eduzz.com/R9JXJA4Z0X" data-checkout data-plano="semestral" target="_blank" rel="noopener">Quero 6 meses de Clube</a>
         <a class="link-aluno" href="https://chk.eduzz.com/Q9N25EQB01" data-checkout data-plano="semestral" data-aluno-fs="sim" target="_blank" rel="noopener">Sou aluno FS: semestral com 20% off</a>
       </article>
-      <article class="painel plano revelar">
+
+      <article class="plano revelar">
         <h3>Mensal</h3>
         <p class="plano-nome">Flexibilidade</p>
         <p class="preco">R$ 247<small>/mês</small></p>
-        <p class="avista">sem compromisso de ciclo longo</p>
+        <p class="avista">decida mês a mês</p>
         <ul class="lista lista--sim">
           <li>2 encontros ao vivo por mês</li>
           <li>Acesso ao núcleo do Clube</li>
-          <li>Gravações e comunidade enquanto a assinatura estiver ativa</li>
-          <li>Benefícios conforme permanência*</li>
         </ul>
+        <ul class="lista lista--falta">
+          <li>Sem os benefícios exclusivos do anual</li>
+          <li>R$ 110 a mais por mês que o anual</li>
+        </ul>
+        <p class="tudo-mais">+ tudo o que está incluído em todos os planos</p>
         <a class="botao botao--contorno" href="https://chk.eduzz.com/8017ERKK07" data-checkout data-plano="mensal" target="_blank" rel="noopener">Começar pelo mensal</a>
         <a class="link-aluno" href="https://chk.eduzz.com/797Z73680E" data-checkout data-plano="mensal" data-aluno-fs="sim" target="_blank" rel="noopener">Sou aluno FS: mensal com 20% off</a>
       </article>
     </div>
-    <div class="painel garantia revelar">
+
+    <div class="incluido revelar">
+      <h3>Incluído em todos os planos</h3>
+      <ul>
+        <li>Gravações dos encontros</li><li>Mesa Clínica do Sono</li><li>Atualização Aplicada</li><li>Comunidade exclusiva</li><li>Casos + ciência aplicada</li><li>Especialistas e diferentes perspectivas</li><li>Experiências especiais*</li><li>Benefícios em formações elegíveis*</li><li>Prioridade em iniciativas selecionadas*</li><li>Vitrine Profissional*</li><li>Oportunidades de visibilidade*</li><li>Participações e collabs*</li>
+      </ul>
+      <p class="asterisco">Alunos da Fisioterapeutas do Sono têm <strong>20% de desconto</strong> em qualquer plano. * Benefícios sujeitos a elegibilidade, participação, disponibilidade, programação e regras vigentes do Clube.</p>
+    </div>
+
+    <div class="garantia revelar">
       <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4 8 10v12c0 10 6.8 18.6 16 22 9.2-3.4 16-12 16-22V10L24 4Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="m17 24 5 5 9-10" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
       <div>
-        <h3>Entre, conheça e decida com segurança</h3>
-        <p>Você tem 7 dias para participar, conhecer a comunidade e sentir se o Clube faz sentido para você. Se não fizer, é só pedir o cancelamento dentro desse prazo, conforme os termos da garantia da compra.</p>
+        <h3>7 dias para decidir com segurança</h3>
+        <p>Participe, conheça a comunidade e, se não fizer sentido, <strong>peça o cancelamento dentro do prazo</strong>, conforme os termos da garantia.</p>
       </div>
     </div>
-    <p class="asterisco">* Itens que dependem de elegibilidade, participação, disponibilidade, programação e regras vigentes.</p>
   </section>
 
-  <!-- 09 · FAQ (máximo de objeções; itens marcados CONFERIR estão listados em CONFERIR.md) -->
-  <section id="duvidas" class="secao secao--larga">
-    <div class="painel painel--cabecalho revelar">
-      <span class="rotulo">09</span>
+  <!-- FAQ · bloco claro (itens marcados CONFERIR foram aprovados pelo Luciano em 22/11/2026) -->
+  <section id="duvidas" class="secao secao--larga secao--clara">
+    <div class="cabecalho revelar">
       <h2>Perguntas frequentes</h2>
     </div>
     <div class="faq">
@@ -347,169 +381,157 @@
       <h3 class="faq-grupo">Sobre o Clube</h3>
       <details class="painel">
         <summary>O que é o Clube de Estudos do Sono, em poucas palavras?</summary>
-        <p>É uma assinatura para quem já trabalha com sono e quer continuar evoluindo depois da formação. Todo mês acontecem dois encontros ao vivo: a Mesa Clínica do Sono, com casos reais, e a Atualização Aplicada, com artigos e convidados. Entre um encontro e outro, a discussão continua numa comunidade exclusiva de membros. Não é um curso com começo, meio e fim: é um lugar fixo para estudar, discutir e trocar ao longo do ano.</p>
+        <p>Uma assinatura para quem já trabalha com sono e quer <strong>continuar evoluindo depois da formação</strong>. São dois encontros ao vivo por mês (Mesa Clínica do Sono, com casos reais, e Atualização Aplicada, com artigos e convidados) e uma comunidade exclusiva entre eles. Não é um curso com começo, meio e fim: é <strong>um lugar fixo para estudar, discutir e trocar o ano todo</strong>.</p>
       </details>
       <details class="painel">
         <summary>Preciso ser fisioterapeuta para participar?</summary>
-        <p>Não. O Clube é multiprofissional. Participam fisioterapeutas, dentistas, médicos, fonoaudiólogos, biomédicos e outros profissionais da saúde cuja atuação ou interesse passa pelo sono. A ideia é justamente juntar quem olha o mesmo paciente por ângulos diferentes.</p>
+        <p>Não. O Clube é <strong>multiprofissional</strong>: participam fisioterapeutas, dentistas, médicos, fonoaudiólogos, biomédicos e outros profissionais da saúde cuja atuação passa pelo sono. A ideia é justamente juntar quem olha o mesmo paciente por ângulos diferentes.</p>
       </details>
       <details class="painel">
         <summary>Não sou fisioterapeuta. Vou acompanhar as discussões?</summary>
-        <p>Sim. Os casos são discutidos pelo raciocínio clínico, e cada profissão traz a sua leitura. Quando um ponto é muito específico de uma área, ele é explicado para que todos entendam onde aquilo entra no cuidado do paciente. Você não precisa dominar a técnica do outro, precisa entender quando e como conversar com ele.</p>
+        <p>Sim. Os casos são discutidos pelo <strong>raciocínio clínico</strong>, e cada profissão traz a sua leitura. Quando um ponto é específico de uma área, ele é explicado para todos. Você não precisa dominar a técnica do outro, precisa entender <strong>quando e como conversar com ele</strong>.</p>
       </details>
       <details class="painel">
         <summary>O Clube substitui uma formação em sono?</summary>
-        <p>Não. O Clube dá continuidade, atualização e discussão a partir de uma base que você já tem. Se você ainda precisa construir os fundamentos, o caminho mais seguro é começar por uma formação estruturada. A equipe pode indicar qual faz sentido para a sua profissão e o seu momento: é só chamar no WhatsApp.</p>
+        <p>Não. Ele dá <strong>continuidade, atualização e discussão</strong> a partir de uma base que você já tem. Se ainda precisa construir os fundamentos, comece por uma formação estruturada. A equipe indica qual faz sentido para você pelo WhatsApp.</p>
       </details>
       <details class="painel">
         <summary>Estou começando a atuar com sono. O Clube é para mim?</summary>
-        <p>Pode ser, desde que você já tenha base em saúde e interesse real pela área. Você vai acompanhar casos e discussões de profissionais mais experientes, o que acelera muito o raciocínio. Só não espere uma aula do zero: o Clube parte do pressuposto de que você já conhece o básico. Se estiver em dúvida, fale com a equipe antes de assinar.</p>
+        <p>Pode ser, desde que você já tenha <strong>base em saúde e interesse real</strong> pela área. Acompanhar casos de profissionais mais experientes acelera muito o raciocínio. Só não espere uma aula do zero. Na dúvida, fale com a equipe antes de assinar.</p>
       </details>
       <details class="painel">
         <summary>Já fiz uma formação em sono, inclusive com vocês. Ainda faz sentido?</summary>
-        <p>É exatamente para você. A formação organiza a base; o Clube ocupa o espaço que vem depois, quando os casos difíceis aparecem e a ciência continua mudando. E quem é aluno da Fisioterapeutas do Sono tem 20% de desconto em qualquer plano.</p>
+        <p>É exatamente para você. A formação organiza a base; o Clube ocupa o espaço que vem depois, quando <strong>os casos difíceis aparecem e a ciência continua mudando</strong>. E quem é aluno da Fisioterapeutas do Sono tem <strong>20% de desconto</strong> em qualquer plano.</p>
       </details>
       <details class="painel">
         <summary>Qual é a diferença entre o Clube e um curso gravado?</summary>
-        <p>No curso gravado você assiste sozinho a um conteúdo fechado. No Clube você participa de discussões ao vivo, leva perguntas, confronta o seu raciocínio com o de outros profissionais e acompanha a evidência que vai saindo ao longo do ano. As gravações existem, mas são um apoio: o valor está na mesa.</p>
+        <p>No curso gravado você assiste sozinho a um conteúdo fechado. No Clube você <strong>participa ao vivo, leva perguntas e confronta seu raciocínio</strong> com o de outros profissionais, acompanhando a evidência ao longo do ano. As gravações existem, mas o valor está na mesa.</p>
       </details>
       <details class="painel">
         <summary>E qual é a diferença para as lives gratuitas do Bastidores do Sono?</summary>
-        <p>As lives do Bastidores são abertas e tratam de uma questão por vez, para quem está conhecendo o tema. O Clube é fechado para membros, trabalha casos reais com profundidade, tem a Atualização Aplicada com curadoria científica, comunidade, envio de casos, convidados e benefícios em formações. São propostas diferentes e complementares.</p>
+        <p>As lives do Bastidores são abertas e tratam de uma questão por vez. O Clube é <strong>fechado para membros</strong>, trabalha <strong>casos reais com profundidade</strong> e tem curadoria científica, comunidade, envio de casos, convidados e benefícios em formações. São propostas complementares.</p>
       </details>
 
       <h3 class="faq-grupo">Encontros e rotina</h3>
       <details class="painel">
         <summary>Quantos encontros são e como funcionam?</summary>
-        <p>São dois encontros ao vivo por mês, até 24 no ano. Um é a Mesa Clínica do Sono, em que um caso real é discutido do começo ao fim: hipóteses, lacunas e decisões confrontadas com a mesa. O outro é a Atualização Aplicada, em que artigos e evidências são analisados pelo que importa na prática: para quem se aplicam, quais os limites e que peso devem ter. Além disso, ao longo do ano acontecem experiências especiais, como painéis multiprofissionais e a Mesa das Controvérsias.</p>
+        <p><strong>Dois encontros ao vivo por mês, até 24 no ano.</strong> Na Mesa Clínica do Sono, um caso real é discutido do começo ao fim. Na Atualização Aplicada, artigos e evidências são analisados pelo que importa na prática. Ao longo do ano também acontecem experiências especiais, como painéis multiprofissionais e a Mesa das Controvérsias.</p>
       </details>
       <details class="painel">
         <summary>Em que dia e horário acontecem os encontros?</summary>
-        <!-- CONFERIR: horário dos encontros -->
-        <p>Os encontros acontecem às quartas-feiras, a cada 15 dias, ao vivo e online. A agenda completa e o horário de cada encontro ficam disponíveis para os membros com antecedência, para você se organizar.</p>
+        <p><strong>Às quartas-feiras, a cada 15 dias, ao vivo e online.</strong> A agenda e o horário de cada encontro ficam disponíveis para os membros com antecedência.</p>
       </details>
       <details class="painel">
         <summary>Preciso participar ao vivo de todos os encontros?</summary>
-        <p>Não. O ao vivo é recomendado, porque é ali que você pergunta e participa da discussão, mas ninguém precisa estar em todos. Quando houver gravação, você assiste depois, no seu tempo.</p>
+        <p>Não. O ao vivo é recomendado, porque é ali que você pergunta e participa, mas <strong>ninguém precisa estar em todos</strong>. Quando houver gravação, você assiste depois.</p>
       </details>
       <details class="painel">
         <summary>Os encontros ficam gravados? Por quanto tempo?</summary>
-        <p>Sim. As gravações ficam disponíveis enquanto a sua assinatura estiver ativa, de acordo com as regras e a disponibilidade do acervo.</p>
+        <p>Sim. As gravações ficam disponíveis <strong>enquanto a sua assinatura estiver ativa</strong>, de acordo com as regras e a disponibilidade do acervo.</p>
       </details>
       <details class="painel">
         <summary>Tenho a agenda cheia. Vou conseguir acompanhar?</summary>
-        <p>O Clube foi pensado para quem atende. São dois encontros por mês, não uma grade de aulas para maratonar. Na prática, ele economiza o tempo que você gastaria procurando artigos sozinho, tentando separar o que é novidade do que é evidência relevante e esperando o próximo congresso para tirar uma dúvida. Se perder um encontro, a gravação e a comunidade estão lá.</p>
+        <p>O Clube foi pensado para quem atende: <strong>são dois encontros por mês</strong>, não uma grade para maratonar. Na prática, ele economiza o tempo que você gastaria procurando artigos sozinho e esperando o próximo congresso. Perdeu um encontro? A gravação e a comunidade estão lá.</p>
       </details>
       <details class="painel">
         <summary>Vou ter acesso aos encontros que aconteceram antes de eu entrar?</summary>
-        <!-- CONFERIR: acesso de novos membros ao acervo anterior -->
-        <p>O acesso às gravações segue as regras e a disponibilidade do acervo do Clube. Se for importante para você assistir a um encontro específico que já aconteceu, fale com a equipe antes de assinar.</p>
+        <p>O acesso às gravações segue as <strong>regras e a disponibilidade do acervo</strong>. Se for importante assistir a um encontro específico, fale com a equipe antes de assinar.</p>
       </details>
       <details class="painel">
         <summary>O Clube tem pausa no fim do ano?</summary>
-        <!-- CONFERIR: recesso de fim de ano -->
-        <p>Sim, há um recesso de fim de ano entre dezembro e janeiro. As datas ficam na agenda que os membros recebem.</p>
+        <p>Sim, há um <strong>recesso de fim de ano</strong> entre dezembro e janeiro. As datas ficam na agenda dos membros.</p>
       </details>
 
       <h3 class="faq-grupo">Participação, casos e comunidade</h3>
       <details class="painel">
         <summary>Posso levar um caso meu para a mesa?</summary>
-        <p>Sim. Você envia o caso para avaliação, com o contexto e o ponto exato da dúvida. O envio não garante que ele será apresentado: a escolha considera tema, relevância, agenda e adequação ao encontro.</p>
+        <p>Sim. Você <strong>envia o caso para avaliação</strong>, com o contexto e o ponto da dúvida. O envio não garante a apresentação: a escolha considera tema, relevância, agenda e adequação.</p>
       </details>
       <details class="painel">
         <summary>Sou obrigado a falar, apresentar caso ou abrir a câmera?</summary>
-        <p>Não. Participar das discussões e apresentar casos são oportunidades, não obrigações. Muita gente começa só ouvindo e vai se sentindo à vontade aos poucos.</p>
+        <p>Não. Participar e apresentar casos são <strong>oportunidades, não obrigações</strong>. Muita gente começa só ouvindo.</p>
       </details>
       <details class="painel">
         <summary>E a privacidade dos pacientes nos casos discutidos?</summary>
-        <!-- CONFERIR: regra de anonimização dos casos -->
-        <p>Os casos são discutidos sem dados que identifiquem o paciente. Quem envia um caso recebe a orientação de retirar nome, documentos e qualquer informação pessoal antes de compartilhar.</p>
+        <p>Os casos são discutidos <strong>sem dados que identifiquem o paciente</strong>. Quem envia um caso é orientado a retirar nome, documentos e qualquer informação pessoal antes de compartilhar.</p>
       </details>
       <details class="painel">
         <summary>Como funciona a comunidade?</summary>
-        <p>É um ambiente exclusivo para membros, onde os casos são preparados, as discussões continuam depois dos encontros e circulam perguntas, materiais selecionados e atualizações. É também onde você conhece profissionais de outras áreas e de outras cidades que atendem sono.</p>
+        <p>É um ambiente <strong>só de membros</strong>, onde os casos são preparados, as discussões continuam depois dos encontros e circulam perguntas, materiais e atualizações. É também onde você conhece <strong>profissionais de outras áreas e cidades</strong> que atendem sono.</p>
       </details>
       <details class="painel">
         <summary>Vou ter contato com as professoras e com profissionais de outras áreas?</summary>
-        <p>Sim. Flávia, Liliane e Rafaela conduzem os encontros, e a cada tema entram convidados, painéis e discussões multiprofissionais. Já passaram pela mesa, por exemplo, Alexandre Annibale (dentista), Babak Mokhlesi (médico), Dani Filócomo, Mariana Escaleira e Georgea Brito (fisioterapeutas) e Gabriel Pires (biomédico).</p>
+        <p>Sim. Flávia, Liliane e Rafaela <strong>conduzem os encontros</strong>, e a cada tema entram convidados e discussões multiprofissionais. Já passaram pela mesa Alexandre Annibale (dentista), Babak Mokhlesi (médico), Dani Filócomo, Mariana Escaleira e Georgea Brito (fisioterapeutas) e Gabriel Pires (biomédico).</p>
       </details>
       <details class="painel">
         <summary>Vou receber artigos e materiais?</summary>
-        <p>Sim, sempre que fizerem parte da curadoria e da discussão do encontro. A proposta não é entregar uma biblioteca infinita para você ler sozinho, e sim selecionar o que merece atenção e discutir o que aquilo muda na prática.</p>
+        <p>Sim, sempre que fizerem parte da curadoria e da discussão. A proposta não é uma biblioteca infinita, e sim <strong>selecionar o que merece atenção</strong> e discutir o que muda na prática.</p>
       </details>
       <details class="painel">
         <summary>O que são os Mapas Clínicos?</summary>
-        <!-- CONFERIR: descrição oficial dos Mapas Clínicos -->
-        <p>São sínteses visuais dos encontros: o raciocínio do caso organizado numa página, com os pontos de decisão e o que levar para o consultório. Servem para revisar rápido e consultar depois.</p>
+        <p>São <strong>sínteses visuais dos encontros</strong>: o raciocínio do caso numa página, com os pontos de decisão e o que levar para o consultório.</p>
       </details>
       <details class="painel">
         <summary>O que é a Vitrine Profissional? Ela me traz pacientes?</summary>
-        <p>É um espaço de visibilidade no ecossistema Fisioterapeutas do Sono para membros que cumprirem os critérios definidos, com foto, formação, área de atuação, cidade e canais de contato. Ela aumenta a exposição do seu trabalho, mas não é promessa nem garantia de pacientes, contratos ou indicações.</p>
+        <p>É um espaço de <strong>visibilidade no ecossistema Fisioterapeutas do Sono</strong> para membros que cumprirem os critérios, com foto, formação, área de atuação, cidade e contatos. Aumenta a exposição do seu trabalho, mas <strong>não garante pacientes, contratos ou indicações</strong>.</p>
       </details>
       <details class="painel">
         <summary>Recebo certificado?</summary>
-        <!-- CONFERIR: existe certificado ou declaração de participação? -->
-        <p>O Clube não funciona como um curso com certificado de conclusão: ele é um espaço contínuo de discussão e atualização. Se você precisa de alguma comprovação de participação, fale com a equipe.</p>
+        <p>O Clube <strong>não funciona como um curso com certificado de conclusão</strong>: é um espaço contínuo de discussão e atualização. Se precisar de comprovação de participação, fale com a equipe.</p>
       </details>
 
       <h3 class="faq-grupo">Planos, pagamento e acesso</h3>
       <details class="painel">
         <summary>Qual plano devo escolher?</summary>
-        <p>Se você quer viver o Clube de verdade, o anual é o recomendado: são até 24 encontros, o menor valor por mês (12x de R$ 137) e a trajetória completa de protagonismo e Vitrine Profissional. O semestral é para quem prefere um compromisso de 6 meses (6x de R$ 157). O mensal (R$ 247) é para quem quer flexibilidade e prefere experimentar antes de assumir um ciclo maior.</p>
+        <p>Para viver o Clube de verdade, <strong>o anual</strong>: até 24 encontros, jornada completa, benefícios exclusivos e <strong>o menor valor por mês (12x R$ 137)</strong>. O semestral é um compromisso de 6 meses (6x R$ 157). O mensal (R$ 247) é para quem quer flexibilidade antes de assumir um ciclo maior.</p>
       </details>
       <details class="painel">
         <summary>O que muda entre o mensal e o anual, além do preço?</summary>
-        <p>O mensal dá acesso aos encontros e aos benefícios enquanto a assinatura estiver ativa. O anual foi pensado para 12 meses contínuos, e alguns benefícios de progressão, visibilidade e iniciativas especiais dependem de elegibilidade e permanência. No anual você também paga menos por mês.</p>
+        <p>O mensal dá acesso aos encontros e benefícios enquanto a assinatura estiver ativa. O anual foi pensado para <strong>12 meses contínuos</strong>: alguns benefícios de progressão, visibilidade e iniciativas especiais dependem de permanência. E no anual você <strong>economiza R$ 1.320</strong> em relação a 12 meses no mensal.</p>
       </details>
       <details class="painel">
         <summary>Sou aluno da Fisioterapeutas do Sono. Como uso meu desconto?</summary>
-        <p>Embaixo de cada plano há o botão “Sou aluno FS”. Ele abre um checkout próprio, já com 20% de desconto. Se tiver qualquer dificuldade, chame a equipe no WhatsApp.</p>
+        <p>Embaixo de cada plano há o link <strong>“Sou aluno FS”</strong>. Ele abre um checkout próprio, já com <strong>20% de desconto</strong>. Qualquer dificuldade, chame a equipe no WhatsApp.</p>
       </details>
       <details class="painel">
         <summary>Quais são as formas de pagamento?</summary>
-        <!-- CONFERIR: Pix e boleto disponíveis em cada plano -->
-        <p>O pagamento é feito no checkout seguro da Eduzz. O anual pode ser parcelado em até 12x e o semestral em até 6x no cartão, ou pago à vista. As demais formas de pagamento disponíveis aparecem no próprio checkout.</p>
+        <p>O pagamento é feito no <strong>checkout seguro da Eduzz</strong>. O anual pode ser parcelado em até 12x e o semestral em até 6x no cartão, ou pago à vista. As demais formas aparecem no checkout.</p>
       </details>
       <details class="painel">
         <summary>Tenho garantia?</summary>
-        <p>Sim. Você tem 7 dias para participar, conhecer a comunidade e avaliar se o Clube faz sentido para você. Se não fizer, é só pedir o cancelamento dentro desse prazo, conforme os termos da garantia da compra.</p>
+        <p>Sim. Você tem <strong>7 dias</strong> para participar e avaliar. Se não fizer sentido, é só pedir o cancelamento dentro desse prazo, conforme os termos da garantia da compra.</p>
       </details>
       <details class="painel">
         <summary>Posso cancelar depois?</summary>
-        <!-- CONFERIR: regras de cancelamento por plano -->
-        <p>Sim. As regras de cancelamento variam conforme o plano contratado e são informadas com clareza no momento da compra. Se quiser entender antes de assinar, a equipe explica pelo WhatsApp.</p>
+        <p>Sim. As regras de cancelamento <strong>variam conforme o plano</strong> e são informadas com clareza na compra. Se quiser entender antes, a equipe explica pelo WhatsApp.</p>
       </details>
       <details class="painel">
         <summary>A assinatura renova sozinha?</summary>
-        <!-- CONFERIR: renovação automática e aviso prévio -->
-        <p>Os planos funcionam como assinatura. As condições de renovação de cada plano aparecem no checkout, e a equipe pode tirar qualquer dúvida antes de você assinar.</p>
+        <p>Os planos funcionam como assinatura. <strong>As condições de renovação aparecem no checkout</strong>, e a equipe tira qualquer dúvida antes de você assinar.</p>
       </details>
       <details class="painel">
         <summary>Tenho desconto em outros cursos da Fisioterapeutas do Sono?</summary>
-        <p>Sim. Membros podem ter até 15% de desconto em formações elegíveis, conforme as condições vigentes no momento da compra, e acesso antecipado a novas formações e experiências.</p>
+        <p>Sim. Membros podem ter <strong>até 15% de desconto em formações elegíveis</strong>, conforme as condições vigentes, e acesso antecipado a novas formações e experiências.</p>
       </details>
       <details class="painel">
         <summary>Depois de pagar, como eu acesso?</summary>
-        <!-- CONFERIR: fluxo de acesso pós-compra -->
-        <p>Assim que o pagamento é confirmado, você recebe por e-mail as orientações de acesso. Os encontros, as gravações e os materiais ficam na área do aluno, que você também encontra no botão “Já sou aluno”, no topo desta página.</p>
+        <p>Com o pagamento confirmado, você <strong>recebe por e-mail as orientações de acesso</strong>. Encontros, gravações e materiais ficam na área do aluno, também no botão “Já sou aluno”, no início desta página.</p>
       </details>
       <details class="painel">
         <summary>Ainda tenho uma dúvida. Com quem eu falo?</summary>
-        <p>Com a nossa equipe, pelo WhatsApp. Pode perguntar sobre planos, pagamento, sua profissão ou se o Clube faz sentido para o seu momento.</p>
+        <p>Com a nossa equipe, <strong>pelo WhatsApp</strong>: planos, pagamento, sua profissão ou se o Clube faz sentido para o seu momento.</p>
       </details>
     </div>
   </section>
 
-  <!-- 10 · FALE COM A EQUIPE (sem formulário) -->
+  <!-- FALE COM A EQUIPE (sem formulário) · faixa turquesa -->
   <section id="contato" class="secao secao--contato">
-    <img class="arte arte--fundo arte--suave" src="assets/img/contato.webp" alt="" loading="lazy">
-    <div class="painel painel--contato revelar">
-      <span class="rotulo">10</span>
+    <div class="painel--contato revelar">
       <h2>Ficou alguma dúvida?</h2>
-      <p>Fale com a nossa equipe. A gente responde sobre planos, pagamento e se o Clube faz sentido para a sua profissão e o seu momento.</p>
+      <p>Fale com a nossa equipe sobre planos, pagamento e se o Clube faz sentido para o seu momento.</p>
       <div class="contato-acoes">
         <a class="botao botao--whats" data-whats target="_blank" rel="noopener">Falar com a equipe no WhatsApp</a>
-        <a class="botao botao--contorno" href="#planos">Ver os planos</a>
+        <a class="botao botao--escuro" href="#planos">Ver os planos</a>
       </div>
     </div>
   </section>
@@ -517,7 +539,7 @@
 </main>
 
 <footer class="rodape">
-  <div class="painel rodape-painel">
+  <div class="rodape-painel">
     <span class="rodape-marca"><img src="assets/logo.png" alt="" class="marca-logo"> Clube de Estudos do Sono · Fisioterapeutas do Sono</span>
     <span class="rodape-links">
       <a href="https://www.instagram.com/fisioterapeutasdosono/" target="_blank" rel="noopener">Instagram</a>

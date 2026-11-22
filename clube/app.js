@@ -114,16 +114,50 @@
   document.querySelectorAll(".faq details").forEach((d) => d.addEventListener("toggle", () => {
     if (d.open) document.querySelectorAll(".faq details[open]").forEach((o) => o !== d && (o.open = false));
   }));
-  let formNaTela = false; // o botão flutuante se recolhe para não cobrir o "Enviar"
+  // WhatsApp flutuante: só aparece quando a pessoa chega ao FAQ
+  const faqEl = document.getElementById("duvidas");
   const aoRolar = () => {
-    topo && topo.classList.toggle("rolou", scrollY > 40);
-    whats && whats.classList.toggle("visivel", scrollY > innerHeight * 0.6 && !formNaTela);
+    const chegouNoFaq = faqEl && faqEl.getBoundingClientRect().top < innerHeight * 0.75;
+    whats && whats.classList.toggle("visivel", !!chegouNoFaq);
   };
-  // Sem formulário: o flutuante se recolhe quando o botão de WhatsApp da seção de contato está na tela.
-  const contatoEl = document.querySelector(".painel--contato");
-  if (contatoEl) new IntersectionObserver(([e]) => { formNaTela = e.isIntersecting; aoRolar(); }).observe(contatoEl);
   addEventListener("scroll", aoRolar, { passive: true });
+  addEventListener("resize", aoRolar);
   aoRolar();
+
+  /* ── VSL: começa a tocar sozinho (sem som) assim que aparece na tela ─── */
+  const vslSecao = document.getElementById("vsl");
+  const vslUrl = (S.vsl && S.vsl.url || "").trim();
+  const local = /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
+  if (vslSecao && (vslUrl || local)) {
+    vslSecao.hidden = false;
+    const caixa = vslSecao.querySelector("[data-vsl]");
+    const somBtn = vslSecao.querySelector(".vsl-som");
+    let iniciado = false;
+    const montar = () => {
+      if (iniciado) return;
+      iniciado = true;
+      if (!vslUrl) { caixa.innerHTML = '<p class="vsl-vazio">Espaço do vídeo de vendas (VSL)<br><small>cole o endereço em config.js → vsl.url</small></p>'; return; }
+      const yt = vslUrl.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([\w-]{11})/);
+      const vm = vslUrl.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+      if (/\.mp4(\?|$)/i.test(vslUrl)) {
+        const v = document.createElement("video");
+        Object.assign(v, { src: vslUrl, muted: true, autoplay: true, playsInline: true, controls: true, preload: "auto" });
+        if (S.vsl.capa) v.poster = S.vsl.capa;
+        caixa.appendChild(v);
+        v.play().catch(() => {});
+        somBtn.hidden = false;
+        somBtn.addEventListener("click", () => { v.muted = false; v.currentTime = 0; v.play(); somBtn.hidden = true; });
+        v.addEventListener("volumechange", () => { if (!v.muted) somBtn.hidden = true; });
+      } else {
+        let src = vslUrl;
+        if (yt) src = `https://www.youtube.com/embed/${yt[1]}?autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1`;
+        else if (vm) src = `https://player.vimeo.com/video/${vm[1]}?autoplay=1&muted=1&playsinline=1`;
+        else src += (src.includes("?") ? "&" : "?") + "autoplay=true&muted=true";
+        caixa.innerHTML = `<iframe src="${src}" title="Vídeo do Clube de Estudos do Sono" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" allowfullscreen></iframe>`;
+      }
+    };
+    new IntersectionObserver(([e], o) => { if (e.isIntersecting) { montar(); o.disconnect(); } }, { threshold: 0.35 }).observe(vslSecao);
+  }
 
   const io = new IntersectionObserver((es) => es.forEach((e) => {
     if (e.isIntersecting) { e.target.classList.add("visto"); io.unobserve(e.target); }
