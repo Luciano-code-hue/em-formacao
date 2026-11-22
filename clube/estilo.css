@@ -485,3 +485,96 @@ h2 em, h1 em { font-style: normal; color: var(--acento); }
 .encontro h3 { color: var(--cor); }
 @media (max-width: 860px) { .cine-dica { display: none; } }
 @media (min-width: 861px) { .momento--abertura h1 { font-size: clamp(32px, 3.5vw, 54px); } .momento--abertura { bottom: 9vh; } }
+
+/* ══ Versão 3 (23/11/2026): logo oficial, convidados com foto, encontros visuais, "+" nos planos ══ */
+
+/* Logo oficial */
+.marca-logo--oficial { height: 74px; width: auto; filter: drop-shadow(0 2px 10px rgb(0 0 0 / .45)); }
+.marca-logo--rodape { height: 56px; width: auto; }
+.topo { align-items: flex-start; }
+@media (max-width: 860px) { .marca-logo--oficial { height: 58px; } }
+
+/* Primeiro bloco sempre visível (inclusive com "Reduzir movimento" ligado no iPhone) */
+@media (prefers-reduced-motion: reduce) {
+  .cine .momento.momento--abertura { display: block !important; opacity: 1 !important; transform: none !important; filter: none !important; pointer-events: auto; }
+}
+
+/* Convidados com foto */
+.convidados { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px 12px; }
+.convidados li { border-top: 0; padding-top: 0; justify-items: center; text-align: center; }
+.convidados img { width: 84px; height: 84px; border-radius: 50%; object-fit: cover; margin-bottom: 8px; }
+.convidados strong { font-size: 14px; line-height: 1.25; }
+.convidados span { font-size: 13px; }
+
+/* Ciclo do mês */
+.ciclo { list-style: none; margin: 0; padding: 0; width: 100%; max-width: var(--largura); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; position: relative; }
+.ciclo::before { content: ""; position: absolute; top: 22px; left: 6%; right: 6%; height: 2px; background: linear-gradient(90deg, var(--acento) 0 50%, var(--ouro) 50% 75%, rgb(246 241 233 / .4) 75%); z-index: 0; }
+.ciclo li { position: relative; z-index: 1; display: grid; justify-items: center; text-align: center; gap: 6px; padding: 0 6px; }
+.ciclo b { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; font: 700 18px var(--fonte-texto); color: #0d1828; background: var(--cor); box-shadow: 0 0 0 6px #08111f; }
+.ciclo strong { font-size: 16px; line-height: 1.3; color: var(--cor); }
+.ciclo span { font-size: 14px; color: var(--texto-suave); line-height: 1.45; }
+.ciclo--mesa { --cor: var(--acento); }
+.ciclo--atual { --cor: var(--ouro); }
+.ciclo--com { --cor: #f6f1e9; }
+
+/* Encontros: foto + corpo, lado a lado */
+.encontro { width: 100%; max-width: var(--largura); display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 0; padding: 0; overflow: hidden; border-radius: 26px; }
+.encontro--inverso { grid-template-columns: 1.1fr 0.9fr; }
+.encontro--inverso .encontro-foto { order: 2; }
+.encontro-foto { position: relative; min-height: 100%; }
+.encontro-foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.encontro-foto::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, transparent 55%, rgb(0 0 0 / .35)); }
+.encontro--inverso .encontro-foto::after { background: linear-gradient(270deg, transparent 55%, rgb(0 0 0 / .35)); }
+.encontro-selo { position: absolute; left: 18px; top: 18px; z-index: 1; font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #0d1828; background: var(--cor); padding: 7px 12px; border-radius: 999px; }
+.encontro-corpo { padding: clamp(24px, 3.2vw, 44px); display: flex; flex-direction: column; }
+.encontro-icone { display: none; }
+.encontro-dor { font-family: var(--fonte-titulo); font-size: clamp(20px, 1.7vw, 25px); line-height: 1.3; color: var(--texto); margin-bottom: 1em; }
+.encontro-dor strong { color: var(--cor); font-weight: 400; }
+.encontro-rotulo { margin: 4px 0 10px; font-size: 12px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--cor); }
+.trilha { list-style: none; margin: 0 0 22px; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 6px; align-items: center; }
+.trilha li { font-size: 14px; padding: 7px 12px; border-radius: 999px; background: rgb(25 194 192 / .16); border: 1px solid rgb(25 194 192 / .45); color: var(--texto); }
+.trilha li + li::before { content: "\2192"; margin-right: 8px; color: var(--acento); font-weight: 700; }
+.filtro { list-style: none; counter-reset: f; margin: 0 0 22px; padding: 0; display: grid; gap: 7px; }
+.filtro li { counter-increment: f; display: flex; gap: 12px; align-items: center; font-size: 15px; padding: 9px 14px; border-radius: 12px; background: rgb(232 182 90 / .12); color: var(--texto-suave); }
+.filtro li:nth-child(2) { margin-left: 4%; } .filtro li:nth-child(3) { margin-left: 8%; } .filtro li:nth-child(4) { margin-left: 12%; } .filtro li:nth-child(5) { margin-left: 16%; background: rgb(232 182 90 / .22); }
+.filtro li::before { content: counter(f); flex: none; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; font-size: 12px; font-weight: 700; background: var(--ouro); color: #2b1d05; }
+.achados { list-style: none; margin: 0 0 22px; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.achados li { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 1.4; padding: 10px 12px; border-radius: 12px; background: rgb(0 0 0 / .22); color: var(--texto); }
+.achados svg { width: 20px; height: 20px; flex: none; color: var(--cor); margin-top: 1px; }
+.encontro-sai { margin-top: auto; }
+.ponte { width: 100%; max-width: 760px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 14px; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+.ponte span:first-child { text-align: right; color: var(--acento); }
+.ponte span:last-child { color: var(--ouro); }
+.ponte i { width: 2px; height: 46px; background: linear-gradient(var(--acento), var(--ouro)); border-radius: 2px; }
+.juntos { width: 100%; max-width: 860px; margin: 0; text-align: center; font-family: var(--fonte-titulo); font-size: clamp(20px, 1.9vw, 28px); line-height: 1.35; color: var(--texto); }
+.t-mesa { color: var(--acento); font-weight: 400; }
+.t-atual { color: var(--ouro); font-weight: 400; }
+
+/* Planos: "+" que abre a lista do que está incluído */
+.tudo-mais { margin: auto 0 18px; font-size: 14px; }
+.tudo-mais summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 10px; color: var(--acento); font-weight: 600; padding: 6px 0; }
+.tudo-mais summary::-webkit-details-marker { display: none; }
+.tudo-mais .mais { width: 26px; height: 26px; flex: none; border-radius: 50%; display: grid; place-items: center; background: var(--acento); color: #0d1828; font-size: 18px; font-weight: 700; line-height: 1; transition: transform .3s var(--ease); }
+.tudo-mais[open] .mais { transform: rotate(45deg); }
+.tudo-mais ul { list-style: none; margin: 10px 0 0; padding: 12px 14px; display: grid; gap: 7px; border-radius: 12px; background: rgb(25 194 192 / .08); border: 1px solid rgb(25 194 192 / .25); }
+.tudo-mais li { position: relative; padding-left: 24px; color: var(--texto); }
+.tudo-mais li::before { content: "\2713"; position: absolute; left: 0; color: var(--acento); font-weight: 700; }
+
+/* ── Celular ── */
+@media (max-width: 860px) {
+  .convidados img { width: 72px; height: 72px; }
+  .ciclo { grid-template-columns: 1fr; gap: 12px; }
+  .ciclo::before { top: 10px; bottom: 10px; left: 21px; right: auto; width: 2px; height: auto; background: linear-gradient(180deg, var(--acento) 0 50%, var(--ouro) 50% 75%, rgb(246 241 233 / .4) 75%); }
+  .ciclo li { grid-template-columns: 44px 1fr; justify-items: start; text-align: left; column-gap: 14px; padding: 0; }
+  .ciclo b { grid-row: span 2; }
+  .encontro, .encontro--inverso { grid-template-columns: 1fr; border-radius: 20px; }
+  .encontro--inverso .encontro-foto { order: 0; }
+  .encontro-foto { min-height: 0; aspect-ratio: 16 / 9; }
+  .encontro-foto::after { background: linear-gradient(180deg, transparent 50%, rgb(0 0 0 / .35)) !important; }
+  .encontro-corpo { padding: 22px 18px 24px; }
+  .achados { grid-template-columns: 1fr; }
+  .filtro li:nth-child(n) { margin-left: 0; }
+  .ponte { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: 6px; }
+  .ponte span:first-child { text-align: center; }
+  .ponte i { height: 28px; }
+}

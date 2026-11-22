@@ -41,8 +41,7 @@
 <!-- Topo fixo no início da página (não acompanha a rolagem) -->
 <header class="topo">
   <a href="#inicio" class="marca" aria-label="Clube de Estudos do Sono">
-    <img src="assets/logo.png" alt="" class="marca-logo">
-    <span class="marca-texto">Clube de Estudos do Sono</span>
+    <img src="assets/logo-oficial-clara.png" alt="Clube de Estudos do Sono" class="marca-logo marca-logo--oficial">
   </a>
   <a href="https://hotmart.com/pt-br/club/fisioterapeutas-do-sono-educacao-consultoria-e-assistencia-em-saude-ltda" class="menu-cta" target="_blank" rel="noopener">Já sou aluno</a>
 </header>
@@ -56,7 +55,7 @@
       <canvas class="cine-canvas" aria-hidden="true"></canvas>
       <div class="cine-vinheta"></div>
 
-      <div class="momento momento--abertura" data-de="0" data-ate="0.3">
+      <div class="momento momento--abertura ativo" data-de="0" data-ate="0.3">
         <div class="painel painel--vidro">
           <p class="sobretitulo">Clube de Estudos do Sono</p>
           <h1 class="titulo-abertura">O paciente não chega dividido em especialidades. <em>Seu raciocínio também não deveria estar.</em></h1>
@@ -127,48 +126,86 @@
     <a href="#planos" class="botao revelar">Quero esses casos na minha mesa</a>
   </section>
 
-  <!-- COMO FUNCIONA: diferencial visual entre os dois encontros -->
+  <!-- COMO FUNCIONA: o ciclo do mês + os dois encontros explicados com imagem (estrutura da página oficial) -->
   <section id="como-funciona" class="secao secao--larga secao--c">
-    <img class="arte arte--fundo arte--suave" src="assets/img/funciona.webp" alt="" loading="lazy">
     <div class="cabecalho revelar">
-      <h2>Dois encontros ao vivo por mês. <em>Cada um com uma missão.</em></h2>
+      <h2>Como você vive o Clube <em>todos os meses</em></h2>
+      <p>Um ciclo que se repete e, a cada mês, <strong>constrói uma nova camada</strong> no seu raciocínio.</p>
     </div>
 
-    <ol class="mes revelar" aria-label="O mês no Clube">
-      <li class="mes-mesa"><span>Encontro 1</span>Mesa Clínica</li>
-      <li class="mes-atual"><span>Encontro 2</span>Atualização Aplicada</li>
-      <li class="mes-com"><span>O mês todo</span>Comunidade</li>
+    <ol class="ciclo revelar" aria-label="O ciclo do mês">
+      <li class="ciclo--mesa"><b>1</b><strong>Um caso coloca o raciocínio em movimento</strong><span>Você conhece o contexto, observa os achados e faz a sua leitura.</span></li>
+      <li class="ciclo--mesa"><b>2</b><strong>A mesa entra na conversa</strong><span>Outras profissões leem o mesmo paciente e confrontam decisões.</span></li>
+      <li class="ciclo--atual"><b>3</b><strong>A ciência é colocada em perspectiva</strong><span>Artigos e especialistas separam novidade do que merece entrar no repertório.</span></li>
+      <li class="ciclo--com"><b>4</b><strong>A discussão continua</strong><span>Na comunidade, perguntas e trocas seguem entre os encontros.</span></li>
     </ol>
 
-    <div class="encontros">
-      <article class="encontro encontro--mesa revelar">
-        <svg class="encontro-icone" viewBox="0 0 64 64" aria-hidden="true"><rect x="12" y="26" width="40" height="12" rx="6" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="20" cy="16" r="5" fill="currentColor"/><circle cx="44" cy="16" r="5" fill="currentColor"/><circle cx="20" cy="48" r="5" fill="currentColor" opacity=".55"/><circle cx="44" cy="48" r="5" fill="currentColor" opacity=".55"/><circle cx="32" cy="32" r="2.6" fill="currentColor"/></svg>
+    <!-- Encontro 1 -->
+    <article class="encontro encontro--mesa revelar">
+      <div class="encontro-foto">
+        <img src="assets/encontros/mesa.webp" alt="Mão tocando a tela de um tablet com o símbolo do Clube" loading="lazy">
+        <span class="encontro-selo">Encontro 01 do mês</span>
+      </div>
+      <div class="encontro-corpo">
         <p class="encontro-tag">A prática em discussão</p>
         <h3>Mesa Clínica do Sono</h3>
-        <p class="encontro-resumo">Um <strong>caso real</strong>, aberto do começo ao fim.</p>
-        <ol class="encontro-passos">
-          <li>O caso é apresentado</li>
-          <li>Hipóteses e lacunas</li>
-          <li>Outras profissões leem o mesmo paciente</li>
-          <li>Sua decisão confrontada com a mesa</li>
+        <p class="encontro-dor">Pare de carregar casos difíceis <strong>sem ter com quem confrontar seu raciocínio.</strong></p>
+        <p class="encontro-rotulo">Você acompanha o raciocínio acontecendo</p>
+        <ol class="trilha">
+          <li>O que chamou atenção</li>
+          <li>Que perguntas fazer</li>
+          <li>Quais hipóteses considerar</li>
+          <li>Onde estão as lacunas</li>
+          <li>Quando outra profissão muda a leitura do caso</li>
         </ol>
-        <p class="encontro-sai"><span>Você sai com</span><strong>mais segurança para decidir</strong> nos próximos casos.</p>
-      </article>
+        <p class="encontro-rotulo">Na mesa, você encontra</p>
+        <ul class="achados">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h10l4 4v12H5z M9 11h6M9 15h4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Casos reais que desafiam o raciocínio</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor"/><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Discussões clínicas ao vivo</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="9" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17" cy="9" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M2 20c1-3 3-5 5-5s4 2 5 5M12 20c1-3 3-5 5-5s4 2 5 5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Outras perspectivas sobre o mesmo paciente</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Suas decisões confrontadas com a mesa</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Espaço para trazer suas perguntas</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 9h8M8 13h8M8 17h5" stroke="currentColor" stroke-width="1.8"/></svg>Sínteses dos principais aprendizados*</li>
+        </ul>
+        <p class="encontro-sai">Você não sai só sabendo mais sobre aquele caso. <strong>Sai enxergando melhor os próximos.</strong></p>
+      </div>
+    </article>
 
-      <article class="encontro encontro--atual revelar">
-        <svg class="encontro-icone" viewBox="0 0 64 64" aria-hidden="true"><path d="M16 8h22l10 10v30H16z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M22 22h14M22 29h20M22 36h12" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><circle cx="44" cy="44" r="8" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="m50 50 7 7" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+    <div class="ponte revelar" aria-hidden="true"><span>a prática levanta perguntas</span><i></i><span>a ciência ajuda a responder</span></div>
+
+    <!-- Encontro 2 -->
+    <article class="encontro encontro--atual encontro--inverso revelar">
+      <div class="encontro-foto">
+        <img src="assets/encontros/atualizacao.webp" alt="Mão navegando em um artigo científico no tablet" loading="lazy">
+        <span class="encontro-selo">Encontro 02 do mês</span>
+      </div>
+      <div class="encontro-corpo">
         <p class="encontro-tag">A ciência em perspectiva</p>
         <h3>Atualização Aplicada</h3>
-        <p class="encontro-resumo">Artigos <strong>escolhidos a dedo</strong>, às vezes com convidados.</p>
-        <ol class="encontro-passos">
-          <li>O que a evidência mostra?</li>
-          <li>Para quem se aplica?</li>
-          <li>Quais são os limites?</li>
-          <li>Que peso ter na prática?</li>
+        <p class="encontro-dor">Pare de tentar acompanhar sozinho <strong>tudo o que muda na ciência do sono.</strong></p>
+        <p class="encontro-rotulo">5 perguntas que separam novidade de evidência</p>
+        <ol class="filtro">
+          <li><span>O que essa evidência <strong>realmente mostra?</strong></span></li>
+          <li><span><strong>Para quem</strong> ela se aplica?</span></li>
+          <li><span>Quais são os <strong>limites?</strong></span></li>
+          <li><span>Como conversa com <strong>o que já sabemos?</strong></span></li>
+          <li><span>Que <strong>peso</strong> ela merece na sua prática?</span></li>
         </ol>
-        <p class="encontro-sai"><span>Você sai com</span><strong>o que muda, e o que não muda,</strong> no seu consultório.</p>
-      </article>
-    </div>
+        <p class="encontro-rotulo">Na Atualização Aplicada, você encontra</p>
+        <ul class="achados">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Ciência discutida com contexto</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h10l4 4v12H5z M9 11h6M9 15h4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Artigos relevantes para a prática</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16l-6 7v6l-4 2v-8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Atualizações filtradas do excesso de informação</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M5 20c1.2-3.5 3.8-5.5 7-5.5s5.8 2 7 5.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Especialistas convidados</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M5 8h14M7 8l-3 6h6zM17 8l-3 6h6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>Aplicabilidade, limites e implicações</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 15l6-6M10 6l1-1a4 4 0 0 1 6 6l-1 1M14 18l-1 1a4 4 0 0 1-6-6l1-1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>O que é publicado ligado aos desafios do consultório</li>
+        </ul>
+        <p class="encontro-sai">Você sai sabendo <strong>o que muda, e o que não muda,</strong> no seu consultório.</p>
+      </div>
+    </article>
+
+    <p class="juntos revelar">Um encontro coloca <strong class="t-mesa">a prática em discussão</strong>. O outro coloca <strong class="t-atual">a ciência em perspectiva</strong>. Juntos, mantêm seu raciocínio sempre em movimento.</p>
+    <p class="asterisco">* Quando previstas na programação.</p>
     <a href="#planos" class="botao revelar">Quero participar dos encontros</a>
   </section>
 
@@ -182,12 +219,12 @@
         <p>Por isso a mesa reúne <strong>fisioterapeutas, dentistas, médicos, fonoaudiólogos e biomédicos</strong>.</p>
         <h3 class="subtitulo">Já passaram pela mesa</h3>
         <ul class="convidados">
-          <li><strong>Alexandre Annibale</strong><span>dentista</span></li>
-          <li><strong>Babak Mokhlesi</strong><span>médico</span></li>
-          <li><strong>Dani Filócomo</strong><span>fisioterapeuta</span></li>
-          <li><strong>Mariana Escaleira</strong><span>fisioterapeuta</span></li>
-          <li><strong>Gabriel Pires</strong><span>biomédico</span></li>
-          <li><strong>Georgea Brito</strong><span>fisioterapeuta</span></li>
+          <li><img src="assets/convidados/annibale.webp" alt="" loading="lazy"><strong>Alexandre Annibale</strong><span>dentista</span></li>
+          <li><img src="assets/convidados/mokhlesi.webp" alt="" loading="lazy"><strong>Babak Mokhlesi</strong><span>médico</span></li>
+          <li><img src="assets/convidados/filocomo.webp" alt="" loading="lazy"><strong>Dani Filócomo</strong><span>fisioterapeuta</span></li>
+          <li><img src="assets/convidados/escaleira.webp" alt="" loading="lazy"><strong>Mariana Escaleira</strong><span>fisioterapeuta</span></li>
+          <li><img src="assets/convidados/pires.webp" alt="" loading="lazy"><strong>Gabriel Pires</strong><span>biomédico</span></li>
+          <li><img src="assets/convidados/brito.webp" alt="" loading="lazy"><strong>Georgea Brito</strong><span>fisioterapeuta</span></li>
         </ul>
         <a href="#planos" class="botao">Quero ocupar meu lugar à mesa</a>
       </div>
@@ -311,7 +348,7 @@
           <li><strong>Menor valor por mês</strong>: R$ 137</li>
           <li><strong>R$ 1.320 a menos</strong> que 12 meses no mensal</li>
         </ul>
-        <p class="tudo-mais">+ tudo o que está incluído em todos os planos</p>
+        <details class="tudo-mais"><summary><span class="mais" aria-hidden="true">+</span> tudo o que está incluído em todos os planos</summary><ul><li>Gravações dos encontros</li><li>Mesa Clínica do Sono</li><li>Atualização Aplicada</li><li>Comunidade exclusiva</li><li>Casos + ciência aplicada</li><li>Especialistas e diferentes perspectivas</li><li>Experiências especiais*</li><li>Benefícios em formações elegíveis*</li><li>Prioridade em iniciativas selecionadas*</li><li>Vitrine Profissional*</li><li>Oportunidades de visibilidade*</li><li>Participações e collabs*</li></ul></details>
         <a class="botao botao--ouro" href="https://chk.eduzz.com/Q9N25EZB01" data-checkout data-plano="anual" target="_blank" rel="noopener">Quero o plano anual</a>
         <a class="link-aluno" href="https://chk.eduzz.com/8017ERBK07" data-checkout data-plano="anual" data-aluno-fs="sim" target="_blank" rel="noopener">Sou aluno FS: anual com 20% off</a>
       </article>
@@ -330,7 +367,7 @@
           <li>Sem os benefícios exclusivos do anual</li>
           <li>R$ 20 a mais por mês que o anual</li>
         </ul>
-        <p class="tudo-mais">+ tudo o que está incluído em todos os planos</p>
+        <details class="tudo-mais"><summary><span class="mais" aria-hidden="true">+</span> tudo o que está incluído em todos os planos</summary><ul><li>Gravações dos encontros</li><li>Mesa Clínica do Sono</li><li>Atualização Aplicada</li><li>Comunidade exclusiva</li><li>Casos + ciência aplicada</li><li>Especialistas e diferentes perspectivas</li><li>Experiências especiais*</li><li>Benefícios em formações elegíveis*</li><li>Prioridade em iniciativas selecionadas*</li><li>Vitrine Profissional*</li><li>Oportunidades de visibilidade*</li><li>Participações e collabs*</li></ul></details>
         <a class="botao botao--contorno" href="https://chk.eduzz.com/R9JXJA4Z0X" data-checkout data-plano="semestral" target="_blank" rel="noopener">Quero 6 meses de Clube</a>
         <a class="link-aluno" href="https://chk.eduzz.com/Q9N25EQB01" data-checkout data-plano="semestral" data-aluno-fs="sim" target="_blank" rel="noopener">Sou aluno FS: semestral com 20% off</a>
       </article>
@@ -348,19 +385,13 @@
           <li>Sem os benefícios exclusivos do anual</li>
           <li>R$ 110 a mais por mês que o anual</li>
         </ul>
-        <p class="tudo-mais">+ tudo o que está incluído em todos os planos</p>
+        <details class="tudo-mais"><summary><span class="mais" aria-hidden="true">+</span> tudo o que está incluído em todos os planos</summary><ul><li>Gravações dos encontros</li><li>Mesa Clínica do Sono</li><li>Atualização Aplicada</li><li>Comunidade exclusiva</li><li>Casos + ciência aplicada</li><li>Especialistas e diferentes perspectivas</li><li>Experiências especiais*</li><li>Benefícios em formações elegíveis*</li><li>Prioridade em iniciativas selecionadas*</li><li>Vitrine Profissional*</li><li>Oportunidades de visibilidade*</li><li>Participações e collabs*</li></ul></details>
         <a class="botao botao--contorno" href="https://chk.eduzz.com/8017ERKK07" data-checkout data-plano="mensal" target="_blank" rel="noopener">Começar pelo mensal</a>
         <a class="link-aluno" href="https://chk.eduzz.com/797Z73680E" data-checkout data-plano="mensal" data-aluno-fs="sim" target="_blank" rel="noopener">Sou aluno FS: mensal com 20% off</a>
       </article>
     </div>
 
-    <div class="incluido revelar">
-      <h3>Incluído em todos os planos</h3>
-      <ul>
-        <li>Gravações dos encontros</li><li>Mesa Clínica do Sono</li><li>Atualização Aplicada</li><li>Comunidade exclusiva</li><li>Casos + ciência aplicada</li><li>Especialistas e diferentes perspectivas</li><li>Experiências especiais*</li><li>Benefícios em formações elegíveis*</li><li>Prioridade em iniciativas selecionadas*</li><li>Vitrine Profissional*</li><li>Oportunidades de visibilidade*</li><li>Participações e collabs*</li>
-      </ul>
-      <p class="asterisco">Alunos da Fisioterapeutas do Sono têm <strong>20% de desconto</strong> em qualquer plano. * Benefícios sujeitos a elegibilidade, participação, disponibilidade, programação e regras vigentes do Clube.</p>
-    </div>
+    <p class="asterisco revelar">Alunos da Fisioterapeutas do Sono têm <strong>20% de desconto</strong> em qualquer plano. * Benefícios sujeitos a elegibilidade, participação, disponibilidade, programação e regras vigentes do Clube.</p>
 
     <div class="garantia revelar">
       <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4 8 10v12c0 10 6.8 18.6 16 22 9.2-3.4 16-12 16-22V10L24 4Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="m17 24 5 5 9-10" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -540,7 +571,7 @@
 
 <footer class="rodape">
   <div class="rodape-painel">
-    <span class="rodape-marca"><img src="assets/logo.png" alt="" class="marca-logo"> Clube de Estudos do Sono · Fisioterapeutas do Sono</span>
+    <span class="rodape-marca"><img src="assets/logo-oficial-clara.png" alt="Clube de Estudos do Sono" class="marca-logo marca-logo--rodape"> Uma iniciativa Fisioterapeutas do Sono</span>
     <span class="rodape-links">
       <a href="https://www.instagram.com/fisioterapeutasdosono/" target="_blank" rel="noopener">Instagram</a>
       <a href="https://hotmart.com/pt-br/club/fisioterapeutas-do-sono-educacao-consultoria-e-assistencia-em-saude-ltda" target="_blank" rel="noopener">Já sou aluno</a>
