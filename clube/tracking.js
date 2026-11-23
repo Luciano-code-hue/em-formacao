@@ -2,7 +2,7 @@
   'use strict';
 
   // Guarda a última campanha que veio na URL (mesma chave das páginas da Black)
-  // e repassa as UTMs para os checkouts da Eduzz e da Hotmart.
+  // e repassa as UTMs para os checkouts da Hotmart.
   const chaves = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
   const armazenamento = 'fds_utms';
   const params = new URLSearchParams(window.location.search);
@@ -27,7 +27,7 @@
     // A compra continua funcionando se o armazenamento estiver indisponível.
   }
 
-  const dominios = ['chk.eduzz.com', 'pay.hotmart.com'];
+  const dominios = ['pay.hotmart.com'];
 
   function checkoutUrl(valor) {
     try {
