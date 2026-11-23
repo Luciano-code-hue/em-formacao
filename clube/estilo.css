@@ -587,3 +587,10 @@ h2 em, h1 em { font-style: normal; color: var(--acento); }
   .marca-logo--oficial { height: 96px; }
   .topo { padding-top: 14px; }
 }
+
+/* v6: o que falta nos planos em vermelho e riscado (sensação de perda); links no FAQ */
+.lista--falta li { color: #f08a7e; text-decoration: line-through; text-decoration-color: rgb(240 138 126 / .85); text-decoration-thickness: 1.5px; }
+.lista--falta li:last-child { text-decoration: none; color: #f08a7e; font-weight: 600; }
+.lista--falta li::before { content: "\00D7"; color: #e5534b; font-weight: 700; text-decoration: none; display: inline-block; }
+.faq details p a { color: #0f8f8d; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.5px; cursor: pointer; }
+.faq details p a:hover { color: #0b6f6d; }
