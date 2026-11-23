@@ -578,3 +578,12 @@ h2 em, h1 em { font-style: normal; color: var(--acento); }
   .ponte span:first-child { text-align: center; }
   .ponte i { height: 28px; }
 }
+
+/* v4: todos os CTAs centralizados; no celular o nome aparece só na logo, em destaque */
+.painel .botao, .momento .botao, .secao > .botao { display: flex; width: fit-content; margin-left: auto; margin-right: auto; text-align: center; }
+@media (max-width: 860px) {
+  .painel .botao, .momento .botao, .secao > .botao { width: 100%; }
+  .momento--abertura .sobretitulo { display: none; }
+  .marca-logo--oficial { height: 96px; }
+  .topo { padding-top: 14px; }
+}
