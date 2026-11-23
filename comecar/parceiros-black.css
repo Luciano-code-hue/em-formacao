@@ -1,0 +1,54 @@
+/* Destaque: bônus Biologix + CPAPS em TODA compra da Black (combos 30% e avulsos 20%) · 2026-11-23 */
+:root{--sp-escuro:#261a31;--sp-amarelo:#f6c465;--sp-tinta:#321b29;--sp-acento:#d7b5ef;--sp-claro:#fff5d9}
+.sp-ico{width:22px;height:22px;flex:none}
+/* 1 · Abertura */
+.sp-selo{display:flex;gap:16px;align-items:center;margin:22px 0 20px;padding:16px 18px;border:2px solid var(--sp-amarelo);border-radius:8px;background:linear-gradient(135deg,color-mix(in srgb,var(--sp-amarelo) 16%,transparent),color-mix(in srgb,var(--sp-amarelo) 4%,transparent));box-shadow:0 0 0 4px color-mix(in srgb,var(--sp-amarelo) 12%,transparent);max-width:660px;text-align:left}
+.sp-selo-logos{display:flex;flex-direction:column;gap:6px;flex:none;width:96px}
+.sp-selo-logos span{display:flex;align-items:center;justify-content:center;background:#fff;border-radius:5px;height:34px;padding:5px 8px}
+.sp-selo-logos img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+.sp-kicker{display:inline-flex;align-items:center;gap:6px;margin:0 0 4px;font-size:11px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:var(--sp-amarelo)}
+.sp-kicker .sp-ico{width:16px;height:16px}
+.sp-selo-titulo{margin:0 0 9px;font-size:clamp(17px,1.6vw,21px);line-height:1.25;font-weight:750;color:#fff;letter-spacing:-.2px}
+.sp-selo-titulo em{font-style:normal;color:var(--sp-amarelo)}
+.sp-chips{display:flex;flex-wrap:wrap;gap:7px;margin:0}
+.sp-chips span{display:inline-block;padding:5px 10px;border-radius:999px;background:var(--sp-amarelo);color:var(--sp-tinta);font-size:12.5px;font-weight:700;line-height:1.25}
+.sp-chips b{font-weight:900}
+/* 2 · Faixa no bloco de bônus */
+.sp-faixa{display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center;margin:0 0 34px;padding:24px 28px;border-radius:8px;background:var(--sp-escuro);color:#fff;border:2px solid var(--sp-amarelo);box-shadow:0 14px 34px #0002;text-align:left}
+.sp-faixa-ico{display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:var(--sp-amarelo);color:var(--sp-tinta)}
+.sp-faixa-ico .sp-ico{width:30px;height:30px}
+.sp-faixa h3{margin:2px 0 6px;font-size:clamp(21px,2.3vw,30px);line-height:1.15;font-weight:750;color:#fff;letter-spacing:-.4px}
+.sp-faixa h3 em{font-style:normal;color:var(--sp-amarelo)}
+.sp-faixa p{margin:0;font-size:15.5px;line-height:1.55;color:#ffffffd9}
+.sp-faixa p strong{color:#fff}
+.sp-faixa .sp-chips{flex-direction:column;align-items:stretch}
+.sp-faixa .sp-chips span{text-align:center;font-size:13.5px;padding:8px 14px}
+.sp-tag{display:inline-flex;align-items:center;gap:5px;align-self:flex-start;margin:0 0 12px;padding:5px 10px;border-radius:999px;background:var(--sp-amarelo);color:var(--sp-tinta);font-size:11px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;line-height:1.2}
+.sp-tag .sp-ico{width:14px;height:14px}
+/* 3 · Oferta */
+.sp-preco{display:flex;gap:10px;align-items:flex-start;margin:16px 0;padding:12px 14px;border-radius:6px;background:var(--sp-claro);color:var(--sp-tinta);border-left:5px solid var(--sp-amarelo);font-size:14px;line-height:1.45;text-align:left}
+.sp-preco strong{color:var(--sp-tinta);font-weight:800}
+.sp-preco .sp-ico{color:var(--sp-tinta);margin-top:1px}
+/* 4 · Vitrine de avulsos */
+.sp-vitrine{display:flex;gap:12px;align-items:center;margin:18px 0 0;padding:14px 18px;border-radius:8px;background:var(--sp-claro);color:var(--sp-tinta);border:2px solid var(--sp-amarelo);font-size:16px;line-height:1.5;max-width:860px;text-align:left}
+.sp-vitrine strong{font-weight:800;color:var(--sp-tinta)}
+.sp-vitrine .sp-ico{width:26px;height:26px}
+.sp-card{display:flex;gap:6px;align-items:center;margin:10px 0 12px;padding:7px 10px;border-radius:5px;background:var(--sp-claro);color:var(--sp-tinta);font-size:12.5px;font-weight:700;line-height:1.3;text-align:left}
+.sp-card .sp-ico{width:16px;height:16px}
+@media (max-width:820px){
+  .sp-faixa{grid-template-columns:1fr;gap:14px;padding:22px 20px}
+  .sp-faixa-ico{width:48px;height:48px}
+  .sp-faixa .sp-chips{flex-direction:row}
+  .sp-faixa .sp-chips span{flex:1 1 140px}
+}
+@media (max-width:520px){
+  .sp-selo{flex-direction:column;align-items:flex-start;gap:12px;padding:15px}
+  .sp-selo-logos{flex-direction:row;width:auto}
+  .sp-selo-logos span{width:96px}
+  .sp-vitrine{font-size:15px;padding:13px 14px}
+}
+.partner-logo+.sp-tag{margin-top:18px;margin-bottom:0}
+.sp-chips span{font-size:13px}
+.showcase-heading .sp-vitrine,.section-heading .sp-vitrine,.sp-vitrine span{font-size:16px!important;line-height:1.5!important;letter-spacing:0!important;font-weight:400!important}
+.sp-vitrine strong{font-size:inherit!important;font-weight:800!important}
+@media (max-width:520px){.showcase-heading .sp-vitrine,.section-heading .sp-vitrine,.sp-vitrine span{font-size:15px!important}}
