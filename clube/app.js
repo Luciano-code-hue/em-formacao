@@ -114,11 +114,11 @@
   document.querySelectorAll(".faq details").forEach((d) => d.addEventListener("toggle", () => {
     if (d.open) document.querySelectorAll(".faq details[open]").forEach((o) => o !== d && (o.open = false));
   }));
-  // WhatsApp flutuante: só aparece quando a pessoa chega ao FAQ
-  const faqEl = document.getElementById("duvidas");
+  // WhatsApp flutuante: aparece a partir do 2º bloco (o 1º fica só com a VSL)
+  const vslEl = document.getElementById("vsl");
   const aoRolar = () => {
-    const chegouNoFaq = faqEl && faqEl.getBoundingClientRect().top < innerHeight * 0.75;
-    whats && whats.classList.toggle("visivel", !!chegouNoFaq);
+    const passouDaVsl = !vslEl || vslEl.getBoundingClientRect().bottom < innerHeight * 0.45;
+    whats && whats.classList.toggle("visivel", passouDaVsl);
   };
   addEventListener("scroll", aoRolar, { passive: true });
   addEventListener("resize", aoRolar);

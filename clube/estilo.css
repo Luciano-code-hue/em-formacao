@@ -592,7 +592,7 @@ h2 em, h1 em { font-style: normal; color: var(--acento); }
   position: relative; isolation: isolate; overflow: clip;
   min-height: 100vh; min-height: 100svh;
   display: grid; place-items: center;
-  padding: 92px var(--gutter) 28px;
+  padding: 48px var(--gutter) 28px;
   background: radial-gradient(90% 60% at 50% 38%, #12304a 0%, #0d1828 55%, #08111f 100%);
 }
 .vsl-fundo {
@@ -607,10 +607,16 @@ h2 em, h1 em { font-style: normal; color: var(--acento); }
 @keyframes vsl-pulso { 70% { box-shadow: 0 0 0 9px rgb(255 107 91 / 0); } 100% { box-shadow: 0 0 0 0 rgb(255 107 91 / 0); } }
 .vsl-titulo { font-size: clamp(30px, 3.2vw, 46px); line-height: 1.08; margin: 0 0 .35em; text-wrap: balance; }
 .vsl-titulo em { display: block; }
-.vsl-apoio { font-size: clamp(16px, 1.2vw, 18px); max-width: 700px; margin: 0 0 20px; }
+.vsl-apoio { font-size: clamp(16px, 1.2vw, 18px); max-width: 700px; margin: 0 0 4px; }
+.vsl-frase {
+  margin: 0 0 20px; max-width: 760px; text-wrap: balance;
+  font-family: var(--fonte-titulo); font-style: italic; font-weight: 400; line-height: 1.2;
+  font-size: clamp(21px, 2.1vw, 30px); color: var(--texto);
+}
+.vsl-frase strong { font-weight: 500; color: var(--ouro); background: linear-gradient(transparent 62%, rgb(232 182 90 / .22) 62%); padding: 0 .08em; }
 .vsl-moldura {
   position: relative; aspect-ratio: 9 / 16;
-  height: clamp(340px, calc(100svh - 470px), 640px); width: auto; max-width: 100%;
+  height: clamp(340px, calc(100svh - 440px), 640px); width: auto; max-width: 100%;
   border-radius: 22px; overflow: hidden; background: #050b15;
   border: 1px solid rgb(25 194 192 / .35);
   box-shadow: 0 0 0 6px rgb(25 194 192 / .07), 0 30px 80px rgb(0 0 0 / .5);
@@ -642,11 +648,11 @@ h2 em, h1 em { font-style: normal; color: var(--acento); }
 .vsl--fim .botao--vsl { animation: vsl-chamada 1.6s 3; }
 .vsl-nota { margin: 12px 0 0; font-size: 13px; letter-spacing: .04em; color: var(--texto-suave); }
 @media (max-width: 860px) {
-  .vsl-abertura { padding: 116px var(--gutter) 28px; place-items: start center; }
-  .vsl-abertura .sobretitulo { display: none; } /* no celular a logo grande já abre a página */
+  .vsl-abertura { padding: 34px var(--gutter) 24px; place-items: start center; }
   .vsl-titulo { font-size: clamp(25px, 7vw, 34px); }
-  .vsl-apoio { font-size: 14.5px; margin-bottom: 14px; }
-  .vsl-moldura { height: clamp(290px, calc(100svh - 395px), 600px); border-radius: 18px; }
+  .vsl-apoio { font-size: 14.5px; margin-bottom: 2px; }
+  .vsl-frase { font-size: clamp(19px, 5.4vw, 23px); margin-bottom: 14px; }
+  .vsl-moldura { height: clamp(300px, calc(100svh - 330px), 600px); border-radius: 18px; }
   .botao--vsl { width: 100%; margin-top: 16px; }
   .vsl-som-caixa { gap: 9px; padding-right: 14px; }
   .vsl-som-icone { width: 40px; height: 40px; }
@@ -661,3 +667,25 @@ h2 em, h1 em { font-style: normal; color: var(--acento); }
   .vsl-som-texto { font-size: 12.5px; }
   .vsl-som-texto strong { font-size: 13.5px; }
 }
+
+/* Topo dentro do 2º bloco (abertura com rolagem) */
+.cine > .topo { position: absolute; top: 0; left: 0; right: 0; z-index: 50; }
+
+/* Itens com asterisco explicados (28/11/2026) */
+.link-asterisco { display: block; margin: -4px 0 14px; font-size: 13.5px; font-weight: 600; color: var(--ouro); text-decoration: underline; text-underline-offset: 3px; }
+.asterisco a { color: var(--acento); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.entenda { width: 100%; max-width: var(--largura); margin: 10px auto 0; padding: clamp(22px, 3vw, 36px); border-radius: var(--raio); background: rgb(8 17 31 / .55); border: 1px solid var(--linha); scroll-margin-top: 24px; }
+.entenda h3 { margin: 0 0 18px; text-align: center; font-family: var(--fonte-titulo); font-size: clamp(22px, 2vw, 30px); }
+.entenda .ast { color: var(--ouro); }
+.entenda-lista { margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.entenda-item { padding: 16px 18px; border-radius: 14px; background: rgb(25 194 192 / .06); border: 1px solid rgb(25 194 192 / .22); }
+.entenda-item--anual { background: rgb(232 182 90 / .08); border-color: rgb(232 182 90 / .4); }
+.entenda-item dt { font-weight: 700; color: var(--texto); font-size: 16px; margin-bottom: 6px; }
+.entenda-plano { display: block; margin-bottom: 6px; font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--acento); }
+.entenda-item--anual .entenda-plano { color: var(--ouro); }
+.entenda-item dd { margin: 0; font-size: 14.5px; line-height: 1.5; color: var(--texto-suave); }
+.entenda-nota { margin: 18px 0 0; font-size: 14px; text-align: center; }
+@media (max-width: 960px) { .entenda-lista { grid-template-columns: 1fr; gap: 10px; } }
+
+/* Celular: painéis da abertura acima do WhatsApp flutuante (que agora aparece desde o 2º bloco) */
+@media (max-width: 860px) { .momento--abertura, .momento--final, .momento--direita { bottom: 86px; } }

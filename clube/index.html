@@ -38,13 +38,7 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TF9PPGQC" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<!-- Topo fixo no início da página (não acompanha a rolagem) -->
-<header class="topo">
-  <a href="#inicio" class="marca" aria-label="Clube de Estudos do Sono">
-    <img src="assets/logo-oficial-clara.png" alt="Clube de Estudos do Sono" class="marca-logo marca-logo--oficial">
-  </a>
-  <a href="https://hotmart.com/pt-br/club/fisioterapeutas-do-sono-educacao-consultoria-e-assistencia-em-saude-ltda" class="menu-cta" target="_blank" rel="noopener">Já sou aluno</a>
-</header>
+
 
 <main>
 
@@ -53,9 +47,9 @@
   <section id="vsl" class="vsl-abertura">
     <div class="vsl-fundo" aria-hidden="true"></div>
     <div class="vsl-conteudo">
-      <p class="sobretitulo"><span class="vsl-ponto" aria-hidden="true"></span>Vídeo de 5 minutos</p>
       <h1 class="vsl-titulo">Quando o paciente não evolui, <em>o que você não está enxergando?</em></h1>
-      <p class="vsl-apoio">Dê o play: Flávia, Liliane e Rafaela mostram por que nenhum caso de sono deveria ser pensado sozinho.</p>
+      <p class="vsl-apoio">Dê o play: Flávia, Liliane e Rafaela mostram</p>
+      <p class="vsl-frase">por que <strong>nenhum caso de sono</strong> deveria ser pensado <strong>sozinho</strong>.</p>
       <div class="vsl-moldura">
         <video class="vsl-player" playsinline muted autoplay preload="auto" poster="assets/vsl/vsl-capa.webp" aria-label="Vídeo do Clube de Estudos do Sono"></video>
         <button class="vsl-som" type="button">
@@ -73,6 +67,13 @@
   <!-- ABERTURA: o vídeo toca com a rolagem (janela à noite → a mesa → a cadeira vaga).
        O 1º momento já mostra nome, transformação e botão (aparece completo no celular). -->
   <section id="inicio" class="cine">
+    <!-- Topo (logo + Já sou aluno): a partir do 2º bloco, para o 1º ficar só com a VSL (28/11/2026) -->
+    <header class="topo">
+      <a href="#inicio" class="marca" aria-label="Clube de Estudos do Sono">
+        <img src="assets/logo-oficial-clara.png" alt="Clube de Estudos do Sono" class="marca-logo marca-logo--oficial">
+      </a>
+      <a href="https://hotmart.com/pt-br/club/fisioterapeutas-do-sono-educacao-consultoria-e-assistencia-em-saude-ltda" class="menu-cta" target="_blank" rel="noopener">Já sou aluno</a>
+    </header>
     <div class="cine-palco">
       <canvas class="cine-canvas" aria-hidden="true"></canvas>
       <div class="cine-vinheta"></div>
@@ -342,7 +343,7 @@
       <h2>Escolha como quer sentar à mesa</h2>
     </div>
 
-    <p class="economia revelar">No anual à vista, cada mês sai por <strong>R$ 137</strong>. No mensal, os mesmos 12 meses custam R$ 2.964. <strong>São R$ 1.320 de economia, mais de 5 mensalidades.</strong></p>
+    <p class="economia revelar">No anual à vista, cada mês sai por <strong>R$ 137</strong>.</p>
 
     <div class="planos">
       <article class="plano plano--anual revelar">
@@ -360,6 +361,7 @@
           <li><strong>Menor valor por mês</strong>: R$ 137 à vista</li>
           <li><strong>R$ 1.320 a menos</strong> que 12 meses no mensal, pagando à vista</li>
         </ul>
+        <a class="link-asterisco" href="#entenda">* O que é cada um desses itens?</a>
         <details class="tudo-mais"><summary><span class="mais" aria-hidden="true">+</span> tudo o que está incluído no anual</summary><ul><li>Gravações dos encontros</li><li>Mesa Clínica do Sono</li><li>Atualização Aplicada</li><li>Comunidade exclusiva</li><li>Casos + ciência aplicada</li><li>Especialistas e diferentes perspectivas</li><li>Experiências especiais durante o ciclo*</li><li>Benefícios em formações elegíveis*</li><li>Prioridade em iniciativas selecionadas*</li><li>Vitrine Profissional*</li><li>Oportunidades de visibilidade*</li><li>Participações e collabs selecionadas*</li></ul></details>
         <a class="botao botao--ouro" href="https://pay.hotmart.com/M108479186F?off=8ioxlac5" data-checkout data-plano="anual" target="_blank" rel="noopener">Quero o plano anual</a>
         <a class="link-aluno" href="https://pay.hotmart.com/M108479186F?off=q7xlx62l" data-checkout data-plano="anual" data-aluno-fs="sim" target="_blank" rel="noopener">Sou aluno FS: anual com 20% off</a>
@@ -408,7 +410,29 @@
       </article>
     </div>
 
-    <p class="asterisco revelar">Alunos da Fisioterapeutas do Sono têm <strong>20% de desconto</strong> em qualquer plano. Parcelamento no cartão com juros; o valor exato de cada parcela aparece no checkout. * Benefícios sujeitos a elegibilidade, participação, disponibilidade, programação e regras vigentes do Clube.</p>
+    <!-- Itens com asterisco explicados (pedido do Luciano em 28/11/2026). Fontes: FAQ da Vitrine, calendário 2027 (protagonismo dos membros),
+         página antiga do Clube (experiências especiais) e bloco "até 15% em formações elegíveis".
+         CONFERIR com a equipe: "Prioridade em iniciativas selecionadas" não tinha descrição oficial. -->
+    <div class="entenda revelar" id="entenda">
+      <h3>O que significa cada item com <span class="ast">*</span></h3>
+      <dl class="entenda-lista">
+        <div class="entenda-item entenda-item--anual"><dt><span class="entenda-plano">Só no anual</span>Vitrine Profissional</dt>
+          <dd>Um espaço no ecossistema Fisioterapeutas do Sono com sua foto, formação, área de atuação, cidade e contatos, para quem procura um profissional encontrar você. Aumenta a exposição do seu trabalho, mas não garante pacientes, contratos ou indicações.</dd></div>
+        <div class="entenda-item entenda-item--anual"><dt><span class="entenda-plano">Só no anual</span>Oportunidades de visibilidade</dt>
+          <dd>Chances de apresentar seus casos nos encontros e de ter seu trabalho em destaque nos canais da Fisioterapeutas do Sono, com selos e destaques de membros.</dd></div>
+        <div class="entenda-item entenda-item--anual"><dt><span class="entenda-plano">Só no anual</span>Participações e collabs selecionadas</dt>
+          <dd>Conteúdos feitos em parceria com a Fisioterapeutas do Sono, como collabs no Instagram, e participações em iniciativas do Clube. Os membros são selecionados e têm acompanhamento científico das professoras.</dd></div>
+        <div class="entenda-item"><dt><span class="entenda-plano">Anual e semestral</span>Experiências especiais durante o ciclo</dt>
+          <dd>Formatos além dos dois encontros fixos do mês, como Mesa das Interfaces, painéis multiprofissionais, Grandes Casos Clínicos, Mesa das Controvérsias, Desafios de Raciocínio, convidados especiais e retrospectivas científicas.</dd></div>
+        <div class="entenda-item"><dt><span class="entenda-plano">Anual e semestral</span>Benefícios em formações elegíveis</dt>
+          <dd>Até 15% de desconto nas formações da Fisioterapeutas do Sono que participam do benefício.</dd></div>
+        <div class="entenda-item"><dt><span class="entenda-plano">Todos os planos</span>Prioridade em iniciativas selecionadas</dt>
+          <dd>Quando o Clube abre uma iniciativa com vagas limitadas, os membros ficam na frente para participar.</dd></div>
+      </dl>
+      <p class="entenda-nota"><strong>Por que o asterisco?</strong> Esses benefícios dependem de critérios de elegibilidade e participação, da disponibilidade de vagas e da programação de cada ciclo, conforme as regras vigentes do Clube.</p>
+    </div>
+
+    <p class="asterisco revelar">Alunos da Fisioterapeutas do Sono têm <strong>20% de desconto</strong> em qualquer plano. Parcelamento no cartão com juros; o valor exato de cada parcela aparece no checkout. <a href="#entenda">* Entenda cada benefício com asterisco.</a></p>
 
     <div class="garantia revelar" id="garantia">
       <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4 8 10v12c0 10 6.8 18.6 16 22 9.2-3.4 16-12 16-22V10L24 4Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="m17 24 5 5 9-10" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
