@@ -48,6 +48,28 @@
 
 <main>
 
+  <!-- 1º BLOCO: VSL (28/11/2026). Frase que puxa o play, vídeo vertical e botão.
+       O vídeo começa sem som; o clique recomeça do início com som. Endereço em config.js → vsl. -->
+  <section id="vsl" class="vsl-abertura">
+    <div class="vsl-fundo" aria-hidden="true"></div>
+    <div class="vsl-conteudo">
+      <p class="sobretitulo"><span class="vsl-ponto" aria-hidden="true"></span>Vídeo de 5 minutos</p>
+      <h1 class="vsl-titulo">Quando o paciente não evolui, <em>o que você não está enxergando?</em></h1>
+      <p class="vsl-apoio">Dê o play: Flávia, Liliane e Rafaela mostram por que nenhum caso de sono deveria ser pensado sozinho.</p>
+      <div class="vsl-moldura">
+        <video class="vsl-player" playsinline muted autoplay preload="auto" poster="assets/vsl/vsl-capa.webp" aria-label="Vídeo do Clube de Estudos do Sono"></video>
+        <button class="vsl-som" type="button">
+          <span class="vsl-som-caixa">
+            <span class="vsl-som-icone" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 8v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg></span>
+            <span class="vsl-som-texto"><strong>Seu vídeo já começou</strong>Toque para ouvir</span>
+          </span>
+        </button>
+      </div>
+      <a href="#planos" class="botao botao--vsl" data-vsl-cta>Quero ocupar meu lugar à mesa</a>
+      <p class="vsl-nota">Dois encontros ao vivo por mês · casos reais e ciência do sono</p>
+    </div>
+  </section>
+
   <!-- ABERTURA: o vídeo toca com a rolagem (janela à noite → a mesa → a cadeira vaga).
        O 1º momento já mostra nome, transformação e botão (aparece completo no celular). -->
   <section id="inicio" class="cine">
@@ -58,7 +80,7 @@
       <div class="momento momento--abertura ativo" data-de="0" data-ate="0.3">
         <div class="painel painel--vidro">
           <p class="sobretitulo">Clube de Estudos do Sono</p>
-          <h1 class="titulo-abertura">O paciente não chega dividido em especialidades. <em>Seu raciocínio também não deveria estar.</em></h1>
+          <h2 class="titulo-abertura">O paciente não chega dividido em especialidades. <em>Seu raciocínio também não deveria estar.</em></h2>
           <p class="apoio">Casos reais e ciência do sono discutidos <strong>ao vivo, duas vezes por mês</strong>, com profissionais que veem o mesmo paciente por outros ângulos.</p>
           <a href="#planos" class="botao">Quero ocupar meu lugar à mesa</a>
         </div>
@@ -78,16 +100,6 @@
 
       <div class="cine-dica" aria-hidden="true"><span></span>role</div>
     </div>
-  </section>
-
-  <!-- VSL: toca sozinho (sem som) quando aparece na tela. Endereço do vídeo em config.js → vsl.
-       Sem vídeo configurado, o bloco fica escondido no site publicado. -->
-  <section id="vsl" class="secao secao--vsl" hidden>
-    <div class="vsl-moldura">
-      <div class="vsl-video" data-vsl></div>
-      <button class="vsl-som" type="button" hidden>Toque para ativar o som</button>
-    </div>
-    <a href="#planos" class="botao">Quero ocupar meu lugar à mesa</a>
   </section>
 
   <!-- DEPOIS DA FORMAÇÃO -->

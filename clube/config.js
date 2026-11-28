@@ -9,12 +9,11 @@ window.SITE = {
   // Formulário removido a pedido (22/11/2026): o contato é só pelo WhatsApp.
   contato: null,
 
-  // VSL: cole aqui o endereço do vídeo. Aceita arquivo .mp4 (ex.: "assets/vsl.mp4"),
-  // link do YouTube, do Vimeo ou o link de incorporação (embed) do Panda Video.
-  // Vazio = o bloco do vídeo fica escondido no site publicado (no localhost aparece a moldura).
+  // VSL do 1º bloco (vídeo vertical 9:16, versão de 27/11/2026 comprimida para a web).
+  // Para trocar o vídeo, substitua assets/vsl/vsl-clube.mp4 (e a capa) mantendo os nomes.
   vsl: {
-    url: "",
-    capa: "", // opcional: imagem de capa para .mp4 (ex.: "assets/vsl-capa.webp")
+    url: "assets/vsl/vsl-clube.mp4",
+    capa: "assets/vsl/vsl-capa.webp",
   },
 
   frames: {

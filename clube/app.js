@@ -124,39 +124,51 @@
   addEventListener("resize", aoRolar);
   aoRolar();
 
-  /* ── VSL: começa a tocar sozinho (sem som) assim que aparece na tela ─── */
+  /* ── VSL do 1º bloco: começa sem som; o clique recomeça do início com som ── */
   const vslSecao = document.getElementById("vsl");
-  const vslUrl = (S.vsl && S.vsl.url || "").trim();
-  const local = /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
-  if (vslSecao && (vslUrl || local)) {
-    vslSecao.hidden = false;
-    const caixa = vslSecao.querySelector("[data-vsl]");
+  const v = vslSecao && vslSecao.querySelector(".vsl-player");
+  if (v) {
     const somBtn = vslSecao.querySelector(".vsl-som");
-    let iniciado = false;
-    const montar = () => {
-      if (iniciado) return;
-      iniciado = true;
-      if (!vslUrl) { caixa.innerHTML = '<p class="vsl-vazio">Espaço do vídeo de vendas (VSL)<br><small>cole o endereço em config.js → vsl.url</small></p>'; return; }
-      const yt = vslUrl.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([\w-]{11})/);
-      const vm = vslUrl.match(/vimeo\.com\/(?:video\/)?(\d+)/);
-      if (/\.mp4(\?|$)/i.test(vslUrl)) {
-        const v = document.createElement("video");
-        Object.assign(v, { src: vslUrl, muted: true, autoplay: true, playsInline: true, controls: true, preload: "auto" });
-        if (S.vsl.capa) v.poster = S.vsl.capa;
-        caixa.appendChild(v);
-        v.play().catch(() => {});
-        somBtn.hidden = false;
-        somBtn.addEventListener("click", () => { v.muted = false; v.currentTime = 0; v.play(); somBtn.hidden = true; });
-        v.addEventListener("volumechange", () => { if (!v.muted) somBtn.hidden = true; });
-      } else {
-        let src = vslUrl;
-        if (yt) src = `https://www.youtube.com/embed/${yt[1]}?autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1`;
-        else if (vm) src = `https://player.vimeo.com/video/${vm[1]}?autoplay=1&muted=1&playsinline=1`;
-        else src += (src.includes("?") ? "&" : "?") + "autoplay=true&muted=true";
-        caixa.innerHTML = `<iframe src="${src}" title="Vídeo do Clube de Estudos do Sono" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" allowfullscreen></iframe>`;
-      }
+    const enviar = (acao, extra) => { (window.dataLayer = window.dataLayer || []).push(Object.assign({ event: "clube_vsl", acao }, extra || {})); };
+    const url = (S.vsl && S.vsl.url) || "assets/vsl/vsl-clube.mp4";
+    if (S.vsl && S.vsl.capa) v.poster = S.vsl.capa;
+    v.src = url;
+    v.muted = true;
+    const tentar = v.play();
+    // Se o navegador bloquear o início automático (ex.: modo economia do iPhone), o convite muda.
+    const parado = () => {
+      vslSecao.classList.add("vsl--parado");
+      somBtn.querySelector(".vsl-som-texto").innerHTML = "<strong>Assista ao vídeo</strong>Toque para começar com som";
     };
-    new IntersectionObserver(([e], o) => { if (e.isIntersecting) { montar(); o.disconnect(); } }, { threshold: 0.35 }).observe(vslSecao);
+    if (tentar) tentar.catch(parado);
+    const comSom = () => {
+      v.muted = false; v.currentTime = 0; v.controls = true;
+      v.play().catch(() => {});
+      somBtn.hidden = true;
+      vslSecao.classList.remove("vsl--parado");
+      enviar("play_com_som");
+    };
+    somBtn.addEventListener("click", comSom);
+    v.addEventListener("volumechange", () => { if (!v.muted && !somBtn.hidden) { somBtn.hidden = true; v.controls = true; } });
+    // Sem som, repete só o comecinho (gancho) para não "gastar" o vídeo antes do clique.
+    v.addEventListener("timeupdate", () => { if (v.muted && !somBtn.hidden && v.currentTime > 28) v.currentTime = 0; });
+    // Retenção: 25, 50, 75 e 100% (só conta quem está ouvindo).
+    const marcos = [25, 50, 75, 95]; const vistos = new Set();
+    v.addEventListener("timeupdate", () => {
+      if (v.muted || !v.duration) return;
+      const pct = (v.currentTime / v.duration) * 100;
+      marcos.forEach((m) => { if (pct >= m && !vistos.has(m)) { vistos.add(m); enviar("assistiu", { percentual: m === 95 ? 100 : m }); } });
+    });
+    v.addEventListener("ended", () => { vslSecao.classList.add("vsl--fim"); });
+    const cta = vslSecao.querySelector("[data-vsl-cta]");
+    cta && cta.addEventListener("click", () => enviar("clique_cta", { segundo: Math.round(v.currentTime || 0) }));
+    // Pausa sozinho se a pessoa rolar a página e o vídeo sair da tela (volta se estava ouvindo).
+    let estavaTocando = false;
+    new IntersectionObserver(([e]) => {
+      if (!e.isIntersecting) { estavaTocando = !v.paused && !v.muted; v.pause(); }
+      else if (v.muted && !somBtn.hidden) v.play().catch(() => {});
+      else if (estavaTocando) v.play().catch(() => {});
+    }, { threshold: 0.25 }).observe(v);
   }
 
   const io = new IntersectionObserver((es) => es.forEach((e) => {

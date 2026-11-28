@@ -352,7 +352,7 @@ h2 em, h1 em { font-style: normal; color: var(--acento); }
 .cine { height: 420vh; }
 .sobretitulo { margin: 0 0 12px; font-size: 13px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--acento); }
 .momento--abertura { max-width: 700px; }
-.momento--abertura h1 { font-size: clamp(34px, 4.4vw, 64px); }
+.momento--abertura h2 { font-size: clamp(34px, 4.4vw, 64px); }
 .momento--abertura .apoio { margin-bottom: 22px; }
 .destaque strong { color: var(--acento); font-weight: 400; }
 
@@ -362,7 +362,6 @@ h2 em, h1 em { font-style: normal; color: var(--acento); }
 .secao--a { background: #0d1828; }
 .secao--b { background: linear-gradient(180deg, #0f2a3c, #0d2233); }
 .secao--c { background: #08111f; }
-.secao--vsl { background: #08111f; justify-items: center; }
 .secao--planos { background: radial-gradient(120% 70% at 50% 0%, #13394a 0%, #0b1d2c 60%, #091726 100%); }
 .secao--clara {
   --texto: #0d1828; --texto-suave: #3b4859; --linha: rgb(13 24 40 / .12); --painel: rgb(255 255 255 / .72); --mistura: multiply;
@@ -378,13 +377,6 @@ h2 em, h1 em { font-style: normal; color: var(--acento); }
 .frase { margin-bottom: .4em; }
 .asterisco { text-align: center; }
 .rotulo { display: none; }
-
-/* VSL */
-.vsl-moldura { position: relative; width: 100%; max-width: 980px; aspect-ratio: 16 / 9; border-radius: var(--raio); overflow: hidden; background: #050b15; border: 1px solid var(--linha); box-shadow: 0 30px 80px rgb(0 0 0 / .45); }
-.vsl-video, .vsl-video iframe, .vsl-video video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-.vsl-vazio { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; margin: 0; color: var(--texto-suave); font-family: var(--fonte-titulo); font-size: clamp(18px, 2vw, 26px); border: 2px dashed rgb(25 194 192 / .4); border-radius: var(--raio); }
-.vsl-vazio small { font-family: var(--fonte-texto); font-size: 13px; }
-.vsl-som { position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); font: 600 15px var(--fonte-texto); color: var(--acento-texto); background: var(--acento); border: 0; border-radius: 999px; padding: 12px 22px; cursor: pointer; }
 
 /* Dores */
 .dores li { padding: 20px 24px; }
@@ -457,7 +449,7 @@ h2 em, h1 em { font-style: normal; color: var(--acento); }
   .cine { height: 300vh; }
   .momento--abertura { bottom: 3vh; }
   .momento--abertura .painel { padding: 20px 20px 22px; }
-  .momento--abertura h1 { font-size: clamp(26px, 7.4vw, 34px); margin-bottom: .35em; }
+  .momento--abertura h2 { font-size: clamp(26px, 7.4vw, 34px); margin-bottom: .35em; }
   .momento--abertura .apoio { font-size: 15px; margin-bottom: 16px; }
   .momento--abertura .botao, .momento--final .botao { width: 100%; }
   .sobretitulo { font-size: 11px; margin-bottom: 8px; }
@@ -484,7 +476,7 @@ h2 em, h1 em { font-style: normal; color: var(--acento); }
 
 .encontro h3 { color: var(--cor); }
 @media (max-width: 860px) { .cine-dica { display: none; } }
-@media (min-width: 861px) { .momento--abertura h1 { font-size: clamp(32px, 3.5vw, 54px); } .momento--abertura { bottom: 9vh; } }
+@media (min-width: 861px) { .momento--abertura h2 { font-size: clamp(32px, 3.5vw, 54px); } .momento--abertura { bottom: 9vh; } }
 
 /* ══ Versão 3 (23/11/2026): logo oficial, convidados com foto, encontros visuais, "+" nos planos ══ */
 
@@ -594,3 +586,78 @@ h2 em, h1 em { font-style: normal; color: var(--acento); }
 .lista--falta li::before { content: "\00D7"; color: #e5534b; font-weight: 700; text-decoration: none; display: inline-block; }
 .faq details p a { color: #0f8f8d; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.5px; cursor: pointer; }
 .faq details p a:hover { color: #0b6f6d; }
+
+/* ══ 1º bloco com a VSL (28/11/2026): frase de destaque, vídeo vertical e botão ══ */
+.vsl-abertura {
+  position: relative; isolation: isolate; overflow: clip;
+  min-height: 100vh; min-height: 100svh;
+  display: grid; place-items: center;
+  padding: 92px var(--gutter) 28px;
+  background: radial-gradient(90% 60% at 50% 38%, #12304a 0%, #0d1828 55%, #08111f 100%);
+}
+.vsl-fundo {
+  position: absolute; inset: -40px; z-index: -1; opacity: .28;
+  background: url("assets/frames/desktop/f_0001.webp") center / cover no-repeat;
+  filter: blur(26px) saturate(1.1);
+}
+.vsl-fundo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgb(8 17 31 / .55), rgb(8 17 31 / .2) 40%, #0d1828 100%); }
+.vsl-conteudo { width: 100%; max-width: 760px; display: grid; justify-items: center; text-align: center; }
+.vsl-abertura .sobretitulo { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+.vsl-ponto { width: 8px; height: 8px; border-radius: 50%; background: #ff6b5b; box-shadow: 0 0 0 0 rgb(255 107 91 / .6); animation: vsl-pulso 1.8s infinite; }
+@keyframes vsl-pulso { 70% { box-shadow: 0 0 0 9px rgb(255 107 91 / 0); } 100% { box-shadow: 0 0 0 0 rgb(255 107 91 / 0); } }
+.vsl-titulo { font-size: clamp(30px, 3.2vw, 46px); line-height: 1.08; margin: 0 0 .35em; text-wrap: balance; }
+.vsl-titulo em { display: block; }
+.vsl-apoio { font-size: clamp(16px, 1.2vw, 18px); max-width: 700px; margin: 0 0 20px; }
+.vsl-moldura {
+  position: relative; aspect-ratio: 9 / 16;
+  height: clamp(340px, calc(100svh - 470px), 640px); width: auto; max-width: 100%;
+  border-radius: 22px; overflow: hidden; background: #050b15;
+  border: 1px solid rgb(25 194 192 / .35);
+  box-shadow: 0 0 0 6px rgb(25 194 192 / .07), 0 30px 80px rgb(0 0 0 / .5);
+}
+.vsl-player { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: #050b15; }
+.vsl-som {
+  position: absolute; inset: 0; display: flex; align-items: flex-end; justify-content: center;
+  border: 0; padding: 0 10px 16px; cursor: pointer; color: #f6f1e9; text-align: left;
+  background: linear-gradient(180deg, transparent 55%, rgb(8 17 31 / .7));
+  font: 500 14px/1.3 var(--fonte-texto);
+}
+.vsl-som[hidden] { display: none; }
+.vsl-som-caixa {
+  display: flex; align-items: center; gap: 12px; max-width: 100%;
+  background: rgb(8 17 31 / .82); border: 1px solid rgb(25 194 192 / .45); border-radius: 999px;
+  padding: 7px 18px 7px 7px; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+}
+.vsl-som-icone {
+  flex: none; width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--acento); color: var(--acento-texto);
+  box-shadow: 0 0 0 0 rgb(25 194 192 / .55); animation: vsl-chamada 2s infinite;
+}
+.vsl-som-icone svg { width: 24px; height: 24px; }
+@keyframes vsl-chamada { 70% { box-shadow: 0 0 0 14px rgb(25 194 192 / 0); } 100% { box-shadow: 0 0 0 0 rgb(25 194 192 / 0); } }
+.vsl-som-texto { display: grid; gap: 1px; }
+.vsl-som-texto strong { color: var(--acento); font-size: 15px; font-weight: 700; }
+.vsl-som:hover .vsl-som-icone { filter: brightness(1.08); }
+.botao--vsl { margin-top: 20px; min-width: min(100%, 360px); font-size: 16px; padding: 19px 34px; box-shadow: 0 12px 36px rgb(25 194 192 / .28); }
+.vsl--fim .botao--vsl { animation: vsl-chamada 1.6s 3; }
+.vsl-nota { margin: 12px 0 0; font-size: 13px; letter-spacing: .04em; color: var(--texto-suave); }
+@media (max-width: 860px) {
+  .vsl-abertura { padding: 116px var(--gutter) 28px; place-items: start center; }
+  .vsl-abertura .sobretitulo { display: none; } /* no celular a logo grande já abre a página */
+  .vsl-titulo { font-size: clamp(25px, 7vw, 34px); }
+  .vsl-apoio { font-size: 14.5px; margin-bottom: 14px; }
+  .vsl-moldura { height: clamp(290px, calc(100svh - 395px), 600px); border-radius: 18px; }
+  .botao--vsl { width: 100%; margin-top: 16px; }
+  .vsl-som-caixa { gap: 9px; padding-right: 14px; }
+  .vsl-som-icone { width: 40px; height: 40px; }
+  .vsl-som-texto strong { font-size: 14px; }
+  .vsl-som { font-size: 13px; padding-bottom: 12px; }
+}
+@media (prefers-reduced-motion: reduce) { .vsl-ponto, .vsl-som-icone, .vsl--fim .botao--vsl { animation: none; } }
+/* Vídeo estreito (notebook baixo, celular pequeno): aviso de som empilhado */
+.vsl-moldura { container-type: inline-size; }
+@container (max-width: 250px) {
+  .vsl-som-caixa { flex-direction: column; gap: 8px; border-radius: 16px; padding: 10px 14px 12px; text-align: center; }
+  .vsl-som-texto { font-size: 12.5px; }
+  .vsl-som-texto strong { font-size: 13.5px; }
+}
